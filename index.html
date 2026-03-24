@@ -7,329 +7,246 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green:   #2D6A4F;
-    --green2:  #52B788;
-    --green-p: #D8F3DC;
-    --amber:   #F4A261;
-    --amber-p: #FFF3E0;
-    --sky:     #457B9D;
-    --sky-p:   #E8F4FD;
-    --red:     #E63946;
-    --red-p:   #FFE5E7;
-    --gold:    #C9A84C;
-    --gold-p:  #FFF9E6;
-    --bg:      #F5FAF7;
-    --card:    #FFFFFF;
-    --t1:      #1A1A2E;
-    --t2:      #3D3D5C;
-    --t3:      #6B7280;
-    --border:  #D1D5DB;
-    --shadow:  0 2px 12px rgba(0,0,0,0.07);
-    --shadow2: 0 6px 28px rgba(0,0,0,0.11);
+    --green:#2D6A4F; --green2:#52B788; --green-p:#D8F3DC;
+    --amber:#F4A261; --amber-p:#FFF3E0;
+    --sky:#457B9D; --sky-p:#E8F4FD;
+    --red:#E63946; --red-p:#FFE5E7;
+    --gold:#C9A84C; --gold-p:#FFF9E6;
+    --bg:#F5FAF7; --card:#FFFFFF;
+    --t1:#1A1A2E; --t2:#3D3D5C; --t3:#6B7280;
+    --border:#D1D5DB;
+    --shadow:0 2px 12px rgba(0,0,0,.07);
+    --shadow2:0 6px 28px rgba(0,0,0,.12);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
+  body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--t1);font-size:15px;line-height:1.7;}
 
-  body{
-    font-family:'Noto Sans KR',sans-serif;
-    background:var(--bg);
-    color:var(--t1);
-    font-size:15px;
-    line-height:1.7;
-  }
-
-  /* ── NAV ── */
-  nav{
-    position:sticky;top:0;z-index:200;
-    background:var(--green);
-    display:flex;align-items:center;gap:0;
-    padding:0 1.5rem;
-    box-shadow:0 2px 10px rgba(0,0,0,.25);
-    overflow-x:auto;
-  }
+  /* NAV */
+  nav{position:sticky;top:0;z-index:200;background:var(--green);display:flex;align-items:center;padding:0 1.5rem;box-shadow:0 2px 10px rgba(0,0,0,.25);overflow-x:auto;}
   nav::-webkit-scrollbar{height:2px;}
-  .nav-logo{
-    font-weight:900;font-size:14px;color:#fff;
-    margin-right:1.5rem;padding:1rem 0;white-space:nowrap;flex-shrink:0;
-  }
-  nav a{
-    color:rgba(255,255,255,.8);text-decoration:none;
-    font-size:13px;font-weight:500;
-    padding:.9rem .8rem;white-space:nowrap;
-    border-bottom:2px solid transparent;
-    transition:all .2s;
-  }
+  .nav-logo{font-weight:900;font-size:14px;color:#fff;margin-right:1.5rem;padding:1rem 0;white-space:nowrap;flex-shrink:0;}
+  nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;font-weight:500;padding:.9rem .8rem;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;}
   nav a:hover{color:#fff;border-bottom-color:var(--amber);}
 
-  /* ── HERO ── */
-  .hero{
-    background:linear-gradient(140deg,#1B4332 0%,#2D6A4F 55%,#40916C 100%);
-    color:#fff;
-    text-align:center;
-    padding:4rem 1.5rem 3.5rem;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero::before{
-    content:'';
-    position:absolute;inset:0;
-    background:radial-gradient(ellipse at 70% 30%,rgba(255,200,100,.12) 0%,transparent 60%);
-    pointer-events:none;
-  }
-  .hero .ep-badge{
-    display:inline-block;
-    background:var(--amber);color:#fff;
-    font-size:11px;font-weight:700;letter-spacing:.08em;
-    padding:4px 16px;border-radius:20px;margin-bottom:1rem;
-  }
-  .hero h1{
-    font-size:2.6rem;font-weight:900;line-height:1.15;
-    margin-bottom:.75rem;
-  }
+  /* HERO */
+  .hero{background:linear-gradient(140deg,#1B4332 0%,#2D6A4F 55%,#40916C 100%);color:#fff;text-align:center;padding:4rem 1.5rem 3.5rem;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(255,200,100,.12) 0%,transparent 60%);pointer-events:none;}
+  .ep-badge{display:inline-block;background:var(--amber);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;padding:4px 16px;border-radius:20px;margin-bottom:1rem;}
+  .hero h1{font-size:2.6rem;font-weight:900;line-height:1.15;margin-bottom:.75rem;}
   .hero h1 span{color:var(--amber);}
   .hero p{font-size:.95rem;opacity:.85;max-width:520px;margin:0 auto;}
-  .hero .meta-row{
-    display:flex;justify-content:center;gap:2.5rem;
-    margin-top:2rem;flex-wrap:wrap;
-  }
-  .hero .mi .v{font-size:1.5rem;font-weight:900;color:var(--amber);line-height:1;}
-  .hero .mi .l{font-size:11px;opacity:.65;margin-top:4px;}
+  .meta-row{display:flex;justify-content:center;gap:2.5rem;margin-top:2rem;flex-wrap:wrap;}
+  .mi .v{font-size:1.5rem;font-weight:900;color:var(--amber);line-height:1;}
+  .mi .l{font-size:11px;opacity:.65;margin-top:4px;}
 
-  /* ── LAYOUT ── */
+  /* LAYOUT */
   .wrap{max-width:980px;margin:0 auto;padding:2rem 1.25rem 5rem;}
   section{margin-top:3rem;}
-  .sec-title{
-    font-size:1.2rem;font-weight:900;color:var(--green);
-    border-bottom:3px solid var(--green2);
-    padding-bottom:.45rem;margin-bottom:1.5rem;
-    display:flex;align-items:center;gap:.6rem;
-  }
-  .sec-title .n{
-    width:26px;height:26px;border-radius:50%;
-    background:var(--green);color:#fff;
-    font-size:12px;font-weight:700;
-    display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  }
+  .sec-title{font-size:1.2rem;font-weight:900;color:var(--green);border-bottom:3px solid var(--green2);padding-bottom:.45rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;}
+  .sec-title .n{width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
-  /* ── CARD ── */
-  .card{
-    background:var(--card);border-radius:14px;
-    padding:1.5rem;box-shadow:var(--shadow);
-    margin-bottom:1rem;
-    page-break-inside:avoid;break-inside:avoid;
-  }
+  /* CARD */
+  .card{background:var(--card);border-radius:14px;padding:1.5rem;box-shadow:var(--shadow);margin-bottom:1rem;page-break-inside:avoid;break-inside:avoid;}
   .card h3{font-size:1rem;font-weight:700;color:var(--t2);margin-bottom:.75rem;}
 
-  /* ── CHARACTER GRID ── */
-  .char-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-    gap:1rem;
-  }
-  .char-card{
-    background:var(--card);border-radius:16px;
-    padding:1.25rem 1rem 1rem;
-    box-shadow:var(--shadow);
-    text-align:center;
-    page-break-inside:avoid;break-inside:avoid;
-    transition:transform .2s,box-shadow .2s;
-    border-top:4px solid var(--green2);
-  }
+  /* CHARACTER GRID */
+  .char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;}
+  .char-card{background:var(--card);border-radius:16px;padding:1.25rem 1rem 1rem;box-shadow:var(--shadow);text-align:center;page-break-inside:avoid;break-inside:avoid;transition:transform .2s,box-shadow .2s;border-top:4px solid var(--green2);}
   .char-card:hover{transform:translateY(-3px);box-shadow:var(--shadow2);}
-  .char-card img{
-    width:110px;height:110px;object-fit:cover;
-    border-radius:12px;margin-bottom:.6rem;
-    display:block;margin-left:auto;margin-right:auto;
-  }
+  .char-card img{width:110px;height:110px;object-fit:cover;border-radius:12px;margin-bottom:.6rem;display:block;margin-left:auto;margin-right:auto;}
   .char-card .cname{font-size:1rem;font-weight:700;color:var(--t1);}
-  .char-card .crole{
-    display:inline-block;font-size:11px;font-weight:700;
-    padding:2px 10px;border-radius:20px;margin:.3rem 0 .5rem;
-  }
+  .char-card .crole{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;margin:.3rem 0 .5rem;}
   .char-card .cdesc{font-size:12px;color:var(--t3);line-height:1.5;}
-
-  /* role colors */
   .role-main{background:var(--amber-p);color:#9A4C10;}
   .role-mentor{background:var(--green-p);color:var(--green);}
   .role-rival{background:var(--red-p);color:var(--red);}
   .role-support{background:var(--sky-p);color:var(--sky);}
   .role-extra{background:#F3F4F6;color:#6B7280;}
 
-  /* ── STORY OVERVIEW ── */
+  /* OV GRID */
   .ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-  .ov-box{
-    background:var(--card);border-radius:12px;
-    padding:1.25rem;box-shadow:var(--shadow);
-  }
+  .ov-box{background:var(--card);border-radius:12px;padding:1.25rem;box-shadow:var(--shadow);}
   .ov-box h4{font-size:13px;font-weight:700;color:var(--green);margin-bottom:.6rem;}
   .ov-box ul{padding-left:1.1rem;font-size:13px;color:var(--t2);line-height:2;}
 
-  /* ── QUOTE ── */
-  .quote{
-    background:var(--green);color:#fff;
-    border-radius:14px;padding:1.5rem 2rem;
-    margin:1.25rem 0;
-    position:relative;overflow:hidden;
-    page-break-inside:avoid;break-inside:avoid;
-  }
-  .quote::before{
-    content:'"';font-size:6rem;
-    color:rgba(255,255,255,.1);
-    position:absolute;top:-12px;left:10px;
-    font-family:Georgia,serif;line-height:1;
-  }
+  /* QUOTE */
+  .quote{background:var(--green);color:#fff;border-radius:14px;padding:1.5rem 2rem;margin:1.25rem 0;position:relative;overflow:hidden;page-break-inside:avoid;break-inside:avoid;}
+  .quote::before{content:'"';font-size:6rem;color:rgba(255,255,255,.1);position:absolute;top:-12px;left:10px;font-family:Georgia,serif;line-height:1;}
   .quote p{font-size:1.05rem;font-weight:500;line-height:1.8;position:relative;}
   .quote .sp{font-size:12px;opacity:.65;margin-top:6px;}
 
-  /* ── STORYBOARD ── */
-  .sb-wrap{display:flex;flex-direction:column;gap:0;}
-
-  /* Act header */
-  .act-header{
-    background:var(--green);color:#fff;
-    border-radius:12px 12px 0 0;
-    padding:.85rem 1.25rem;
-    display:flex;align-items:center;gap:.8rem;
-    margin-top:1.5rem;
-    page-break-after:avoid;
-  }
-  .act-header:not(:first-child){border-radius:12px 12px 0 0;}
-  .act-num{
-    background:rgba(255,255,255,.2);
-    font-size:11px;font-weight:700;letter-spacing:.05em;
-    padding:3px 12px;border-radius:20px;
-  }
-  .act-title{font-size:1rem;font-weight:700;}
-  .act-time{margin-left:auto;font-size:12px;opacity:.7;}
-
-  /* Scene row */
-  .scene-table{
-    width:100%;border-collapse:collapse;
-    background:var(--card);
-    border-radius:0 0 12px 12px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-    margin-bottom:0;
-    page-break-inside:avoid;break-inside:avoid;
-  }
-  .scene-table thead th{
-    background:#F0F7F4;
-    padding:8px 12px;
-    font-size:11px;font-weight:700;color:var(--t3);
-    text-align:left;border-bottom:2px solid var(--border);
-  }
-  .scene-table tbody tr{
-    border-bottom:1px solid var(--border);
-    page-break-inside:avoid;break-inside:avoid;
-  }
-  .scene-table tbody tr:last-child{border-bottom:none;}
-  .scene-table tbody td{
-    padding:10px 12px;
-    vertical-align:top;
-    font-size:13px;color:var(--t2);
-  }
-  .scene-table tbody tr:hover td{background:#FAFFF8;}
-
-  td.snum{
-    font-weight:900;color:var(--green);
-    font-size:12px;white-space:nowrap;
-    width:60px;
-  }
-  td.stc{font-size:11px;color:var(--t3);white-space:nowrap;width:70px;}
-  td.saction{width:30%;}
-  td.sdialogue{
-    font-style:italic;color:var(--sky);
-    width:30%;font-size:12px;
-  }
-  td.scam{font-size:12px;color:var(--t3);width:20%;}
-  td.snote{
-    font-size:11px;color:var(--amber);
-    font-weight:600;width:10%;
-  }
-
-  /* climax scene highlight */
-  .scene-table tbody tr.climax td{background:#FFF9E6 !important;}
-  .scene-table tbody tr.climax td.snum{color:var(--gold);}
-
-  /* ── KPI ROW ── */
+  /* KPI */
   .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
-  .kpi{
-    background:var(--card);border-radius:12px;
-    padding:1.25rem 1rem;text-align:center;
-    box-shadow:var(--shadow);
-    border-top:4px solid var(--green2);
-    page-break-inside:avoid;break-inside:avoid;
-  }
+  .kpi{background:var(--card);border-radius:12px;padding:1.25rem 1rem;text-align:center;box-shadow:var(--shadow);border-top:4px solid var(--green2);page-break-inside:avoid;break-inside:avoid;}
   .kpi .v{font-size:1.7rem;font-weight:900;color:var(--green);line-height:1;}
   .kpi .l{font-size:11px;color:var(--t3);margin-top:5px;}
 
-  /* ── TAG ── */
-  .tag{
-    display:inline-block;font-size:11px;font-weight:700;
-    padding:2px 10px;border-radius:20px;margin:2px;
-  }
-  .tag-green{background:var(--green-p);color:var(--green);}
-  .tag-amber{background:var(--amber-p);color:#9A4C10;}
-  .tag-sky{background:var(--sky-p);color:var(--sky);}
-  .tag-red{background:var(--red-p);color:var(--red);}
+  /* NOTICE */
+  .notice{background:var(--amber-p);border:1px solid var(--amber);border-radius:10px;padding:.9rem 1.1rem;font-size:13px;color:#7A3E00;margin:.75rem 0;page-break-inside:avoid;break-inside:avoid;}
 
-  /* ── NOTICE ── */
-  .notice{
-    background:var(--amber-p);border:1px solid var(--amber);
-    border-radius:10px;padding:.9rem 1.1rem;
-    font-size:13px;color:#7A3E00;margin:.75rem 0;
-    page-break-inside:avoid;break-inside:avoid;
-  }
+  /* STORYBOARD */
+  .act-header{background:var(--green);color:#fff;border-radius:12px 12px 0 0;padding:.85rem 1.25rem;display:flex;align-items:center;gap:.8rem;margin-top:1.5rem;page-break-after:avoid;}
+  .act-num{background:rgba(255,255,255,.2);font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 12px;border-radius:20px;}
+  .act-title{font-size:1rem;font-weight:700;}
+  .act-time{margin-left:auto;font-size:12px;opacity:.7;}
 
-  /* ── DIALOGUE TABLE ── */
+  .scene-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:0 0 12px 12px;overflow:hidden;box-shadow:var(--shadow);page-break-inside:avoid;break-inside:avoid;}
+  .scene-table thead th{background:#F0F7F4;padding:8px 10px;font-size:11px;font-weight:700;color:var(--t3);text-align:left;border-bottom:2px solid var(--border);}
+  .scene-table tbody tr{border-bottom:1px solid var(--border);page-break-inside:avoid;break-inside:avoid;}
+  .scene-table tbody tr:last-child{border-bottom:none;}
+  .scene-table tbody td{padding:9px 10px;vertical-align:top;font-size:13px;color:var(--t2);}
+  .scene-table tbody tr:hover td{background:#FAFFF8;}
+  td.snum{font-weight:900;color:var(--green);font-size:12px;white-space:nowrap;width:52px;}
+  td.stc{font-size:11px;color:var(--t3);white-space:nowrap;width:60px;}
+  td.sdialogue{font-style:italic;color:var(--sky);font-size:12px;}
+  td.scam{font-size:12px;color:var(--t3);}
+  td.snote{font-size:11px;color:var(--amber);font-weight:600;white-space:nowrap;}
+  .scene-table tbody tr.climax td{background:#FFF9E6 !important;}
+  .scene-table tbody tr.climax td.snum{color:var(--gold);}
+
+  /* PROMPT BUTTON */
+  .prompt-btn{
+    display:inline-flex;align-items:center;gap:4px;
+    background:linear-gradient(135deg,#6B35C7,#9B72CF);
+    color:#fff;border:none;border-radius:8px;
+    font-size:11px;font-weight:700;padding:4px 10px;
+    cursor:pointer;white-space:nowrap;
+    transition:opacity .2s,transform .15s;
+    font-family:'Noto Sans KR',sans-serif;
+  }
+  .prompt-btn:hover{opacity:.85;transform:scale(1.03);}
+
+  /* PROMPT PANEL (side drawer) */
+  .prompt-overlay{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);
+    z-index:500;backdrop-filter:blur(2px);
+  }
+  .prompt-overlay.open{display:block;}
+  .prompt-panel{
+    position:fixed;right:0;top:0;bottom:0;width:420px;max-width:95vw;
+    background:#1A1A2E;color:#E8E8FF;
+    z-index:501;
+    display:flex;flex-direction:column;
+    transform:translateX(110%);
+    transition:transform .3s cubic-bezier(.4,0,.2,1);
+    box-shadow:-8px 0 32px rgba(0,0,0,.3);
+  }
+  .prompt-panel.open{transform:translateX(0);}
+  .pp-header{
+    padding:1.25rem 1.5rem;
+    background:#12122A;
+    display:flex;align-items:center;justify-content:space-between;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .pp-header h3{font-size:14px;font-weight:700;color:#A8D8A8;}
+  .pp-close{background:none;border:none;color:rgba(255,255,255,.5);font-size:20px;cursor:pointer;padding:4px;line-height:1;transition:color .2s;}
+  .pp-close:hover{color:#fff;}
+  .pp-body{padding:1.5rem;overflow-y:auto;flex:1;}
+  .pp-scene-info{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:.75rem;}
+  .pp-action-desc{font-size:13px;color:#C8D8C8;margin-bottom:1.25rem;line-height:1.6;padding:.75rem;background:rgba(255,255,255,.05);border-radius:8px;}
+  .pp-label{font-size:11px;font-weight:700;color:#9B72CF;letter-spacing:.07em;margin-bottom:.4rem;margin-top:1rem;}
+  .pp-prompt-box{
+    background:#0D0D1A;border:1px solid rgba(107,53,199,.3);
+    border-radius:10px;padding:1rem;
+    font-family:'Courier New',monospace;font-size:12px;color:#A8D8A8;
+    line-height:1.65;word-break:break-all;
+    white-space:pre-wrap;
+  }
+  .pp-copy-btn{
+    display:block;width:100%;margin-top:.75rem;
+    background:linear-gradient(135deg,#6B35C7,#9B72CF);
+    color:#fff;border:none;border-radius:8px;
+    padding:.6rem;font-size:13px;font-weight:700;
+    cursor:pointer;font-family:'Noto Sans KR',sans-serif;
+    transition:opacity .2s;
+  }
+  .pp-copy-btn:hover{opacity:.85;}
+  .pp-copy-btn.copied{background:#2D6A4F;}
+  .pp-divider{border:none;border-top:1px solid rgba(255,255,255,.08);margin:1rem 0;}
+  .pp-tip{font-size:11px;color:rgba(255,255,255,.35);line-height:1.6;}
+
+  /* DIALOGUE TABLE */
   .dtable{width:100%;border-collapse:collapse;font-size:13px;}
-  .dtable th{
-    background:var(--green);color:#fff;
-    padding:9px 14px;text-align:left;font-size:12px;font-weight:700;
-  }
-  .dtable td{
-    padding:9px 14px;border-bottom:1px solid var(--border);
-    color:var(--t2);vertical-align:top;
-  }
+  .dtable th{background:var(--green);color:#fff;padding:9px 14px;text-align:left;font-size:12px;font-weight:700;}
+  .dtable td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--t2);vertical-align:top;}
   .dtable tr:nth-child(even) td{background:var(--bg);}
   .dtable tr{page-break-inside:avoid;break-inside:avoid;}
   .dtable td.speaker{font-weight:700;color:var(--green);white-space:nowrap;}
   .dtable td.dial{font-style:italic;}
   .dtable td.role-d{font-size:12px;color:var(--t3);}
 
-  /* ── FOOTER ── */
-  footer{
-    text-align:center;padding:2rem;
-    font-size:12px;color:var(--t3);
-    border-top:1px solid var(--border);margin-top:3rem;
-  }
+  /* TAGS */
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;margin:2px;}
+  .tag-green{background:var(--green-p);color:var(--green);}
+  .tag-amber{background:var(--amber-p);color:#9A4C10;}
+  .tag-sky{background:var(--sky-p);color:var(--sky);}
+  .tag-red{background:var(--red-p);color:var(--red);}
 
-  /* ── PRINT ── */
+  /* REALTIME BANNER */
+  .rt-banner{
+    background:linear-gradient(135deg,#1A1A2E,#2D2D5E);
+    color:#fff;border-radius:14px;padding:1.5rem;
+    margin-top:1.5rem;
+    display:flex;gap:1.25rem;align-items:flex-start;
+  }
+  .rt-icon{font-size:2rem;flex-shrink:0;line-height:1;}
+  .rt-body h4{font-size:15px;font-weight:700;margin-bottom:.4rem;color:#A8D8FF;}
+  .rt-body p{font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:.5rem;}
+  .rt-body .rt-note{font-size:12px;color:rgba(255,255,255,.4);border-left:2px solid rgba(107,53,199,.5);padding-left:.75rem;margin-top:.6rem;}
+
+  /* FOOTER */
+  footer{text-align:center;padding:2rem;font-size:12px;color:var(--t3);border-top:1px solid var(--border);margin-top:3rem;}
+
+  /* PRINT */
   @media print{
-    nav{display:none !important;}
+    nav,.prompt-btn,.prompt-overlay,.prompt-panel{display:none !important;}
     *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-    .card,.kpi,.char-card,.ov-box,.quote,.act-header,.scene-table,.notice,tr{
-      page-break-inside:avoid;break-inside:avoid;
-    }
+    .card,.kpi,.char-card,.ov-box,.quote,tr{page-break-inside:avoid;break-inside:avoid;}
     h1,h2,h3,.sec-title,.act-header{page-break-after:avoid;}
     a[href]::after{content:none !important;}
     body{background:#fff;}
   }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media(max-width:700px){
     .hero h1{font-size:1.8rem;}
     .kpi-row{grid-template-columns:repeat(2,1fr);}
     .ov-grid{grid-template-columns:1fr;}
     .char-grid{grid-template-columns:repeat(2,1fr);}
-    .scene-table thead th:nth-child(4),
-    .scene-table tbody td:nth-child(4),
+    .scene-table thead th:nth-child(5),
+    .scene-table tbody td:nth-child(5),
     .scene-table thead th:nth-child(6),
     .scene-table tbody td:nth-child(6){display:none;}
   }
 </style>
 </head>
 <body>
+
+<!-- PROMPT PANEL -->
+<div class="prompt-overlay" id="overlay" onclick="closePrompt()"></div>
+<div class="prompt-panel" id="promptPanel">
+  <div class="pp-header">
+    <h3>🎨 이미지 생성 프롬프트</h3>
+    <button class="pp-close" onclick="closePrompt()">✕</button>
+  </div>
+  <div class="pp-body">
+    <div class="pp-scene-info" id="ppSceneInfo"></div>
+    <div class="pp-action-desc" id="ppActionDesc"></div>
+    <div class="pp-label">MIDJOURNEY / DALL-E 프롬프트</div>
+    <div class="pp-prompt-box" id="ppPromptBox"></div>
+    <button class="pp-copy-btn" id="ppCopyBtn" onclick="copyPrompt()">📋 클립보드에 복사</button>
+    <hr class="pp-divider">
+    <div class="pp-label">STABLE DIFFUSION / COMFYUI 버전</div>
+    <div class="pp-prompt-box" id="ppSdBox"></div>
+    <button class="pp-copy-btn" onclick="copySd()">📋 SD 프롬프트 복사</button>
+    <hr class="pp-divider">
+    <div class="pp-tip">
+      💡 <strong>팁:</strong> 캐릭터 일관성을 위해 --cref 또는 --sref 파라미터에 이전에 생성한 캐릭터 이미지 URL을 추가하세요.<br><br>
+      스타일 통일을 위해 첫 씬 생성 후 --sref [이미지URL]로 전체 시리즈 톤을 맞추는 걸 추천합니다.
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -345,10 +262,7 @@
 <div class="hero">
   <div class="ep-badge">해달아재와 몽글숲 친구들 — 에피소드 3</div>
   <h1>해달아재의<br><span>생일파티!</span></h1>
-  <p>
-    수수하고 울퉁불퉁한 조개 하나.<br>
-    그 안에 숨어있던 건 작은 진주와, 오구리의 고른 마음.
-  </p>
+  <p>수수하고 울퉁불퉁한 조개 하나.<br>그 안에 숨어있던 건 작은 진주와, 오구리의 고른 마음.</p>
   <div class="meta-row">
     <div class="mi"><div class="v">약 7분</div><div class="l">에피소드 분량</div></div>
     <div class="mi"><div class="v">42씬</div><div class="l">스토리보드 컷 수</div></div>
@@ -362,14 +276,12 @@
 <!-- ======= 1. 에피소드 개요 ======= -->
 <section id="overview">
   <div class="sec-title"><span class="n">1</span> 에피소드 개요</div>
-
   <div class="kpi-row">
     <div class="kpi"><div class="v">겉모습</div><div class="l">판단하지 않기</div></div>
     <div class="kpi"><div class="v">마음</div><div class="l">선물보다 중요한 것</div></div>
     <div class="kpi"><div class="v">비교</div><div class="l">나를 작게 만드는 것</div></div>
     <div class="kpi"><div class="v">용기</div><div class="l">그래도 내 선택 믿기</div></div>
   </div>
-
   <div class="ov-grid" style="margin-top:1rem;">
     <div class="ov-box">
       <h4>핵심 메시지</h4>
@@ -409,12 +321,8 @@
       </ul>
     </div>
   </div>
-
   <div class="quote">
-    <p>
-      "예쁜 건 금방 눈에 띄지만, 소중한 건 천천히 알게 되기도 한단다.<br>
-      네가 가져온 건 조개만이 아니야. 고른 마음도 함께 왔구나."
-    </p>
+    <p>"예쁜 건 금방 눈에 띄지만, 소중한 건 천천히 알게 되기도 한단다.<br>네가 가져온 건 조개만이 아니야. 고른 마음도 함께 왔구나."</p>
     <div class="sp">— 달봉이 (해달아재), 에피소드 클라이맥스 대사</div>
   </div>
 </section>
@@ -422,218 +330,93 @@
 <!-- ======= 2. 캐릭터 ======= -->
 <section id="characters">
   <div class="sec-title"><span class="n">2</span> 등장 캐릭터</div>
-
   <div class="char-grid">
 
     <div class="char-card" style="border-top-color:var(--amber);">
       <img src="images/오구리.png" alt="오구리">
       <div class="cname">오구리</div>
       <div class="crole role-main">주인공</div>
-      <div class="cdesc">
-        오리너구리. 오리 같은 부리, 비버 같은 납작한 꼬리를 가진 소심한 아이.
-        어디에도 딱 맞지 않는 것 같아 늘 주눅 들어 있지만, 마음만큼은 따뜻하고 섬세하다.
-        이번 에피소드에서 수수한 조개를 고르며 자신의 선택을 믿는 용기를 배운다.
-      </div>
+      <div class="cdesc">오리너구리. 오리 같은 부리, 비버 같은 납작한 꼬리. 소심하지만 마음이 따뜻하다. 이번 에피소드에서 수수한 조개를 고르며 자신의 선택을 믿는 용기를 배운다.</div>
     </div>
 
     <div class="char-card" style="border-top-color:var(--green);">
       <img src="images/달봉이.png" alt="달봉이">
       <div class="cname">달봉이</div>
       <div class="crole role-mentor">해달아재 · 멘토</div>
-      <div class="cdesc">
-        해달. 몽글숲 마을의 지혜로운 어른.
-        낡은 삼베 외투를 입고 항상 무언가를 손에 쥐고 있다.
-        절대 정답을 먼저 말하지 않는다 — 질문과 행동으로만 힌트를 준다.
-        생일이지만 축하받는 것보다 아이들과 함께하는 시간을 더 좋아한다.
-      </div>
+      <div class="cdesc">해달. 지혜로운 마을 어른. 낡은 삼베 외투를 입고 항상 뭔가를 손에 쥐고 있다. 정답을 먼저 말하지 않고 행동으로 먼저 보여준다. 생일 당사자.</div>
     </div>
 
     <div class="char-card" style="border-top-color:var(--red);">
       <img src="images/고봉이.png" alt="고봉이">
       <div class="cname">고봉이</div>
       <div class="crole role-rival">대비 캐릭터</div>
-      <div class="cdesc">
-        검은 고양이. 자존심이 강하고 "내 게 제일 좋아"를 입에 달고 산다.
-        가장 반짝이는 조개를 골랐다며 으스대지만 나쁜 마음은 아니다.
-        오구리 선물을 보고 솔직하게 놀라는 리액션을 담당.
-      </div>
+      <div class="cdesc">검은 고양이. 자존심이 강하고 "내 게 제일 좋아"를 입에 달고 산다. 가장 반짝이는 조개를 골랐다며 으스대지만 나쁜 마음은 아님. 진주 발견 후 솔직하게 인정하는 반전.</div>
     </div>
 
     <div class="char-card" style="border-top-color:#E96D1F;">
       <img src="images/치토스.png" alt="치토스">
       <div class="cname">치토스</div>
       <div class="crole role-rival">에너지 캐릭터</div>
-      <div class="cdesc">
-        아기 치타. 항상 전속력으로 뛰어다니며 "내가 제일 많이 찾겠어!"를 외친다.
-        조개 찾기 경쟁에 가장 열심이지만 너무 빨라서 정작 좋은 조개를 다 지나친다.
-        오구리의 조개를 보고 처음엔 비웃다가 가장 크게 놀라는 반전 리액션.
-      </div>
+      <div class="cdesc">아기 치타. 항상 전속력으로 뛰어다님. 제일 많이 찾겠다며 열심이지만 너무 빨라서 정작 좋은 조개를 다 지나침. 오구리 조개를 보고 처음엔 비웃다가 가장 크게 "엥?!" 반응.</div>
     </div>
 
     <div class="char-card" style="border-top-color:var(--sky);">
       <img src="images/우야.png" alt="우야">
       <div class="cname">우야</div>
       <div class="crole role-support">활발한 조연</div>
-      <div class="cdesc">
-        여우. 영리하고 재빠르다. "나는 달봉이아재가 좋아할 제일 예쁜 걸 찾을 거야!"
-        오구리에게 "다른 거 더 찾아볼까?"라고 말하는 캐릭터.
-        악의 없는 한마디가 오구리를 흔든다.
-      </div>
+      <div class="cdesc">여우. 영리하고 재빠름. 악의 없이 "다른 거 더 찾아볼까?"라고 말해 오구리를 흔드는 캐릭터. 진주 발견 후 오구리에게 미안한 눈빛.</div>
     </div>
 
     <div class="char-card" style="border-top-color:#8B5CF6;">
       <img src="images/토리.png" alt="토리">
       <div class="cname">토리</div>
       <div class="crole role-support">욕심쟁이 조연</div>
-      <div class="cdesc">
-        다람쥐. 욕심이 많아 조개를 잔뜩 모으려 한다.
-        "하나만 고르라고?" 하며 아쉬워하는 코믹 리액션 담당.
-        결국 가장 마음에 드는 하나를 고른다.
-      </div>
+      <div class="cdesc">다람쥐. 욕심이 많아 조개를 잔뜩 모으려 함. "하나만 고르라고?" 하며 아쉬워하는 코믹 담당. 결국 하나 고른다.</div>
     </div>
 
     <div class="char-card" style="border-top-color:#10B981;">
       <img src="images/덕심이.png" alt="덕심이">
       <div class="cname">덕심이</div>
       <div class="crole role-support">순수한 조연</div>
-      <div class="cdesc">
-        아기 오리. 순수하고 잘 따라다닌다.
-        "달봉이아재 생일이야?" 하며 가장 먼저 신나하는 캐릭터.
-        조개 찾기에서 아무 조개나 골라 "이게 예쁜 것 같아요!" 하는 순수함이 포인트.
-      </div>
+      <div class="cdesc">아기 오리. 순수하고 잘 따라다님. 달봉이아재 생일 소식을 가장 먼저 신나하는 캐릭터. "이게 예쁜 것 같아요!" 하는 순수함.</div>
     </div>
 
     <div class="char-card" style="border-top-color:#F59E0B;">
       <img src="images/도찌.png" alt="도찌">
       <div class="cname">도찌</div>
       <div class="crole role-support">꼼꼼한 조연</div>
-      <div class="cdesc">
-        고슴도치. 꼼꼼하고 신중하다.
-        조개 하나하나를 들어보고 두드려보고 냄새 맡아보며 고르는 신중파.
-        그 모습이 사실 가장 달봉이아재를 닮아있다.
-      </div>
+      <div class="cdesc">고슴도치. 조개를 들어보고 두드려보고 냄새 맡아보는 신중파. 그 모습이 달봉이아재와 가장 닮아 있다. 복선 회수 역할.</div>
     </div>
 
-    <div class="char-card" style="border-top-color:#EC4899;">
+    <div class="char-card" style="border-top-color:#F7DC6F;">
       <img src="images/삐까.png" alt="삐까">
       <div class="cname">삐까</div>
       <div class="crole role-support">공감 조연</div>
-      <div class="cdesc">
-        큰 귀 친칠라. 오구리 옆에 늘 붙어다닌다.
-        오구리가 수수한 조개를 고르자 "나도 이게 좋아 보여" 하고 옆에서 지지해주는 유일한 친구.
-        오구리의 용기를 가장 가까이서 응원한다.
-      </div>
+      <div class="cdesc">피카. 큰 귀, 동그랗고 폭신한 몸. 오구리 옆에 늘 붙어다니는 단짝. "나도 이게 좋아 보여"라고 말하며 오구리를 지지하는 유일한 친구. 진주 발견 후 오구리 손을 꼭 잡음.</div>
     </div>
 
     <div class="char-card" style="border-top-color:#6B7280;">
       <img src="images/찐찔이.png" alt="찐찔이">
       <div class="cname">찐찔이</div>
       <div class="crole role-extra">조용한 조연</div>
-      <div class="cdesc">
-        친칠라. 조용하고 내성적이다.
-        말은 거의 없지만 표정 연기로 공감을 전달.
-        진주가 나왔을 때 입이 떡 벌어지는 리액션 담당.
-      </div>
+      <div class="cdesc">친칠라. 말은 거의 없지만 표정 연기로 공감을 전달. 진주가 나왔을 때 입이 떡 벌어지는 리액션 담당.</div>
     </div>
 
     <div class="char-card" style="border-top-color:#F97316;">
       <img src="images/해피쿼카엘리자베스3세.png" alt="해피쿼카엘리자베스3세">
       <div class="cname">해피쿼카<br>엘리자베스3세</div>
       <div class="crole role-support">파티 에너지</div>
-      <div class="cdesc">
-        쿼카. 항상 웃고 있다. 생일파티 준비에 가장 열정적.
-        "파티 시작이야아아!" 를 외치며 풍선과 꽃으로 달봉이 집을 꾸미는 주도자.
-        모두의 에너지를 끌어올리는 역할.
-      </div>
+      <div class="cdesc">쿼카. 항상 웃고 있음. 파티 준비에 가장 열정적. "파티 시작이야아아!" 를 외치며 분위기를 이끄는 에너지원.</div>
     </div>
 
-  </div>
-
-  <!-- 관계도 -->
-  <div class="card" style="margin-top:1.5rem;">
-    <h3>에피소드 내 캐릭터 관계 / 역할 분류</h3>
-    <table style="width:100%;border-collapse:collapse;font-size:13px;">
-      <thead>
-        <tr style="background:#F0F7F4;">
-          <th style="padding:8px 12px;text-align:left;font-weight:700;color:var(--t3);border-bottom:2px solid var(--border);">캐릭터</th>
-          <th style="padding:8px 12px;text-align:left;font-weight:700;color:var(--t3);border-bottom:2px solid var(--border);">동물</th>
-          <th style="padding:8px 12px;text-align:left;font-weight:700;color:var(--t3);border-bottom:2px solid var(--border);">조개 선택 성향</th>
-          <th style="padding:8px 12px;text-align:left;font-weight:700;color:var(--t3);border-bottom:2px solid var(--border);">진주 반전 반응</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="border-bottom:1px solid var(--border);">
-          <td style="padding:8px 12px;font-weight:700;color:var(--amber);">오구리 (주인공)</td>
-          <td style="padding:8px 12px;">오리너구리</td>
-          <td style="padding:8px 12px;">수수하고 울퉁불퉁한 조개 — 마음이 끌렸지만 자신 없음</td>
-          <td style="padding:8px 12px;">가장 놀라고, 가장 따뜻하게 웃음</td>
-        </tr>
-        <tr style="background:var(--bg);border-bottom:1px solid var(--border);">
-          <td style="padding:8px 12px;font-weight:700;color:var(--green);">달봉이 (해달아재)</td>
-          <td style="padding:8px 12px;">해달</td>
-          <td style="padding:8px 12px;">—  (생일 당사자)</td>
-          <td style="padding:8px 12px;">웃으며 조개를 열어 보임 / 핵심 대사 전달</td>
-        </tr>
-        <tr style="border-bottom:1px solid var(--border);">
-          <td style="padding:8px 12px;">고봉이</td>
-          <td style="padding:8px 12px;">검은 고양이</td>
-          <td style="padding:8px 12px;">제일 반짝이는 진주빛 조개 — 자랑함</td>
-          <td style="padding:8px 12px;">입을 다물지 못함, 오구리를 다시 봄</td>
-        </tr>
-        <tr style="background:var(--bg);border-bottom:1px solid var(--border);">
-          <td style="padding:8px 12px;">치토스</td>
-          <td style="padding:8px 12px;">아기 치타</td>
-          <td style="padding:8px 12px;">가장 크고 화려한 조개 — 빠르게 집어옴</td>
-          <td style="padding:8px 12px;">처음엔 비웃다가 가장 크게 "엥?!" 반응</td>
-        </tr>
-        <tr style="border-bottom:1px solid var(--border);">
-          <td style="padding:8px 12px;">우야</td>
-          <td style="padding:8px 12px;">여우</td>
-          <td style="padding:8px 12px;">색깔 예쁜 조개 — "달봉이아재 좋아할 거야"</td>
-          <td style="padding:8px 12px;">놀라며 오구리한테 미안한 눈빛</td>
-        </tr>
-        <tr style="background:var(--bg);border-bottom:1px solid var(--border);">
-          <td style="padding:8px 12px;">삐까</td>
-          <td style="padding:8px 12px;">친칠라</td>
-          <td style="padding:8px 12px;">오구리 옆에서 같이 고민 — "나도 이게 좋아 보여"</td>
-          <td style="padding:8px 12px;">오구리 손 꼭 잡고 같이 기뻐함</td>
-        </tr>
-        <tr style="border-bottom:1px solid var(--border);">
-          <td style="padding:8px 12px;">토리</td>
-          <td style="padding:8px 12px;">다람쥐</td>
-          <td style="padding:8px 12px;">여러 개 모으려다 결국 하나 고름</td>
-          <td style="padding:8px 12px;">고개를 끄덕끄덕</td>
-        </tr>
-        <tr style="background:var(--bg);border-bottom:1px solid var(--border);">
-          <td style="padding:8px 12px;">덕심이</td>
-          <td style="padding:8px 12px;">아기 오리</td>
-          <td style="padding:8px 12px;">아무 조개나 "이게 예뻐!" — 순수함</td>
-          <td style="padding:8px 12px;">"와아~" 하고 손뼉</td>
-        </tr>
-        <tr style="border-bottom:1px solid var(--border);">
-          <td style="padding:8px 12px;">도찌</td>
-          <td style="padding:8px 12px;">고슴도치</td>
-          <td style="padding:8px 12px;">꼼꼼하게 검사해서 고름 (달봉이와 닮음)</td>
-          <td style="padding:8px 12px;">작게 고개를 끄덕이며 혼자 미소</td>
-        </tr>
-        <tr style="background:var(--bg);">
-          <td style="padding:8px 12px;">해피쿼카엘리자베스3세</td>
-          <td style="padding:8px 12px;">쿼카</td>
-          <td style="padding:8px 12px;">파티 준비 주도 — 조개 선물 아이디어 제안자</td>
-          <td style="padding:8px 12px;">펄쩍 뛰며 "말했잖아 달봉이아재는 뭔가 다르다고!"</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </section>
 
 <!-- ======= 3. 스토리보드 ======= -->
 <section id="storyboard">
   <div class="sec-title"><span class="n">3</span> 씬별 스토리보드 — 전체 (약 7분)</div>
-
   <div class="notice">
-    <strong>읽는 법:</strong> 씬번호 / 타임코드 / 배경 / 액션 설명 / 대사 (이탤릭) / 카메라 / 연출 포인트 순서.
-    ★ 표시는 핵심 씬(클라이맥스). 전체 42씬 구성.
+    <strong>🎨 이미지 프롬프트 사용법:</strong> 각 씬의 <strong>보라색 [🎨 프롬프트]</strong> 버튼을 클릭하면 해당 씬의 Midjourney / Stable Diffusion 이미지 생성 프롬프트가 우측 패널에 표시됩니다. 복사 버튼으로 바로 사용하세요.
   </div>
 
   <!-- ACT 1 -->
@@ -643,65 +426,55 @@
     <span class="act-time">0:00 ~ 1:20</span>
   </div>
   <table class="scene-table">
-    <thead>
-      <tr>
-        <th>씬</th><th>타임</th><th>배경</th><th>액션</th><th>대사</th><th>카메라</th><th>포인트</th>
-      </tr>
-    </thead>
+    <thead><tr><th>씬</th><th>타임</th><th>배경 / 액션</th><th>대사</th><th>카메라</th><th>연출포인트</th><th>프롬프트</th></tr></thead>
     <tbody>
       <tr>
-        <td class="snum">S-01</td>
-        <td class="stc">0:00</td>
-        <td>몽글숲 마을 전경</td>
-        <td>이른 아침. 안개가 살짝 낀 마을 전경. 나무들 사이로 오두막집들이 보인다. 새소리, 바람 소리.</td>
+        <td class="snum">S-01</td><td class="stc">0:00</td>
+        <td>이른 아침 몽글숲 마을 전경. 안개가 살짝 낀 마을, 나무 사이 오두막들. 새소리, 바람 소리.</td>
         <td class="sdialogue">—</td>
-        <td class="scam">와이드 샷 → 천천히 줌인</td>
-        <td class="snote">세계관 첫 소개</td>
+        <td class="scam">와이드샷 → 천천히 줌인</td>
+        <td class="snote">세계관 도입</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-01','이른 아침 몽글숲 마을 전경 / 안개 낀 따뜻한 숲속 마을','wide establishing shot of a cozy forest village at early morning, soft mist between trees, small animal-sized cottages with warm glowing windows, mushroom-shaped roofs, winding dirt paths, wildflowers, soft golden dawn light, Studio Ghibli x Pixar style, warm pastel greens and creams, children\'s animation, 3D render --ar 16:9 --v 7 --stylize 120','(masterpiece:1.2), cozy forest village, early morning mist, small cottages, golden hour, soft pastel colors, children animation style, 3D render, Studio Ghibli inspired, warm lighting, no characters')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-02</td>
-        <td class="stc">0:12</td>
-        <td>오구리 집 앞</td>
-        <td>오구리가 집 앞 나무 옆에 앉아 혼자 돌을 만지작거리고 있다. 뭔가 심심한 표정.</td>
+        <td class="snum">S-02</td><td class="stc">0:12</td>
+        <td>오구리가 집 앞 나무 옆에 혼자 앉아 돌을 만지작거림. 심심한 표정.</td>
         <td class="sdialogue">—</td>
         <td class="scam">미디엄샷</td>
         <td class="snote">주인공 도입</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-02','오구리 혼자 집 앞에서 돌 만지작거리는 장면','cute platypus character sitting alone by a big tree, small cottage behind, playing with a pebble, bored but gentle expression, slight slouch, soft morning light, warm pastel forest background, 3D children\'s animation, Pixar quality, full body, medium shot --ar 16:9 --v 7 --stylize 100','(masterpiece), cute platypus character, sitting alone, gentle expression, forest background, children 3D animation, soft lighting, warm colors, morning atmosphere')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-03</td>
-        <td class="stc">0:20</td>
-        <td>마을 길</td>
-        <td>해피쿼카엘리자베스3세가 팔짝팔짝 뛰며 달려온다. 숨이 차서 헉헉거리면서도 신이 나있다.</td>
+        <td class="snum">S-03</td><td class="stc">0:20</td>
+        <td>해피쿼카엘리자베스3세가 팔짝팔짝 뛰며 달려온다. 숨차면서도 신이 나있다.</td>
         <td class="sdialogue">"오구리야! 오구리야아!! 있잖아, 있잖아!!"</td>
-        <td class="scam">달리는 방향으로 패닝</td>
+        <td class="scam">달리는 방향 패닝샷</td>
         <td class="snote">에너지 주입</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-03','해피쿼카가 신나서 뛰어오는 장면','excited quokka character running joyfully down a forest path, arms outstretched, big happy smile, panting slightly, motion blur on legs, dust particles, warm sunlight through trees, children\'s 3D animation, dynamic pose, panning shot feel, pastel forest background --ar 16:9 --v 7 --stylize 110','(masterpiece), excited quokka character, running, happy expression, forest path, children 3D animation, motion, dynamic pose, warm lighting')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-04</td>
-        <td class="stc">0:28</td>
-        <td>마을 길</td>
-        <td>해피쿼카가 오구리 앞에 탁 멈춰 서더니 눈을 반짝이며 말한다. 오구리가 고개를 든다.</td>
+        <td class="snum">S-04</td><td class="stc">0:28</td>
+        <td>해피쿼카가 오구리 앞에 탁 멈춰서 눈 반짝이며 말함. 오구리 고개를 든다.</td>
         <td class="sdialogue">"오늘이 달봉이아재 생일이래!! 우리 선물 드리자!"</td>
         <td class="scam">투샷 → 오구리 클로즈업</td>
         <td class="snote">사건 트리거</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-04','해피쿼카가 오구리에게 달봉이 생일 소식 전하는 장면','quokka and platypus characters face to face, quokka with sparkling excited eyes telling news, platypus looking up with surprise, two shot composition, warm forest path background, soft dappled light, children\'s 3D animation, expressive faces --ar 16:9 --v 7 --stylize 100','(masterpiece), quokka and platypus characters, face to face, excited and surprised expressions, forest background, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-05</td>
-        <td class="stc">0:38</td>
-        <td>마을 길</td>
-        <td>소식을 들은 고봉이, 치토스, 우야, 토리, 덕심이, 도찌, 삐까, 찐찔이가 하나둘 모여든다. 모두 웅성웅성.</td>
-        <td class="sdialogue">"달봉이아재 생일이야?" / "선물 뭐 드리지?" / "나는 뭔가 진짜 좋은 거 드릴 거야!"</td>
-        <td class="scam">그룹샷. 캐릭터들 차례로 등장하는 컷.</td>
-        <td class="snote">전원 소개</td>
+        <td class="snum">S-05</td><td class="stc">0:38</td>
+        <td>소식을 들은 모든 친구들(고봉이·치토스·우야·토리·덕심이·도찌·삐까·찐찔이)이 모여든다.</td>
+        <td class="sdialogue">"달봉이아재 생일이야?" / "선물 뭐 드리지?" / "내가 제일 좋은 거 드릴 거야!"</td>
+        <td class="scam">그룹샷. 캐릭터 차례로 등장 컷.</td>
+        <td class="snote">전원 등장</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-05','모든 동물 친구들이 모여드는 장면','group of adorable animal characters gathering together on a forest path — black cat, baby cheetah, fox, squirrel, baby duck, hedgehog, pikachu-like character, chinchilla — all talking excitedly, varied expressions of surprise and excitement, warm morning light, children\'s 3D animation, Pixar ensemble shot --ar 16:9 --v 7 --stylize 110','(masterpiece), group of cute animal characters, gathering together, excited expressions, forest background, children 3D animation, ensemble')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-06</td>
-        <td class="stc">0:55</td>
-        <td>마을 길</td>
-        <td>해피쿼카가 팔을 번쩍 든다. "해변에 조개가 진짜 많거든! 제일 예쁜 조개를 선물하자!" 모두 눈이 빛난다. 치토스가 이미 뛰기 시작한다.</td>
-        <td class="sdialogue">"제일 예쁜 조개 선물하자!!"<br>"나 먼저 간다!!"</td>
+        <td class="snum">S-06</td><td class="stc">0:55</td>
+        <td>해피쿼카 팔을 번쩍 듦. "제일 예쁜 조개 선물하자!" 치토스가 이미 뛰기 시작한다.</td>
+        <td class="sdialogue">"제일 예쁜 조개 선물하자!!" / "나 먼저 간다!!"</td>
         <td class="scam">군중 리액션 컷</td>
         <td class="snote">목표 설정</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-06','해피쿼카가 팔 들고 "조개 선물하자!" 외치는 장면','quokka character raising arm triumphantly announcing the plan, baby cheetah already sprinting away in background, group of animals reacting with excitement, dynamic composition, action lines, children\'s 3D animation, bright cheerful atmosphere --ar 16:9 --v 7 --stylize 120','(masterpiece), quokka raising arm, excited announcement, baby cheetah running, group reaction, children 3D animation, energetic')">🎨 프롬프트</button></td>
       </tr>
     </tbody>
   </table>
@@ -713,83 +486,71 @@
     <span class="act-time">1:20 ~ 2:50</span>
   </div>
   <table class="scene-table">
-    <thead>
-      <tr>
-        <th>씬</th><th>타임</th><th>배경</th><th>액션</th><th>대사</th><th>카메라</th><th>포인트</th>
-      </tr>
-    </thead>
+    <thead><tr><th>씬</th><th>타임</th><th>배경 / 액션</th><th>대사</th><th>카메라</th><th>연출포인트</th><th>프롬프트</th></tr></thead>
     <tbody>
       <tr>
-        <td class="snum">S-07</td>
-        <td class="stc">1:20</td>
-        <td>몽글숲 해변 전경</td>
-        <td>눈부신 해변. 파도 소리. 모래사장에 크고 작은 조개들이 반짝인다. 아이들이 줄지어 도착하는 장면.</td>
+        <td class="snum">S-07</td><td class="stc">1:20</td>
+        <td>눈부신 해변 전경. 파도 소리. 모래사장에 크고 작은 조개들이 반짝임. 아이들 줄지어 도착.</td>
         <td class="sdialogue">"와아— 조개 진짜 많다!"</td>
         <td class="scam">와이드샷 → 조개 클로즈업</td>
         <td class="snote">배경 설정</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-07','몽글숲 해변 전경 / 조개가 가득한 모래사장','beautiful warm beach scene, shallow turquoise waves, sand sparkling with colorful seashells of all sizes, group of small animal characters arriving and gasping in wonder, warm afternoon sun, children\'s 3D animation, wide establishing shot, vibrant pastel seaside colors --ar 16:9 --v 7 --stylize 120','(masterpiece), beautiful beach, colorful seashells on sand, warm sunlight, children 3D animation, wide shot, sparkling')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-08</td>
-        <td class="stc">1:32</td>
-        <td>해변</td>
-        <td>치토스가 전속력으로 달리며 이 조개 저 조개 집어들었다 내려놨다를 반복한다. 너무 빨라서 정작 좋은 걸 놓친다.</td>
+        <td class="snum">S-08</td><td class="stc">1:32</td>
+        <td>치토스가 전속력으로 달리며 조개를 집었다 놓기를 반복. 너무 빨라서 정작 좋은 걸 놓친다.</td>
         <td class="sdialogue">"이것도 예뻐! 아 이게 더 커! 이건 반짝여!"</td>
-        <td class="scam">치토스 달리기 팬샷 + 발아래 모래 날리는 이펙트</td>
+        <td class="scam">치토스 달리기 팬샷 + 모래 날리는 이펙트</td>
         <td class="snote">코믹 릴리프</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-08','치토스가 전속력으로 해변을 달리며 조개 집었다 놓기 반복','baby cheetah character sprinting across a beach at full speed, comic motion lines, picking up and dropping seashells in rapid succession, sand flying behind, comical expression of indecision, speed blur effect, children\'s 3D animation, dynamic action shot --ar 16:9 --v 7 --stylize 130','(masterpiece), baby cheetah running fast, beach, picking seashells, comical motion, speed lines, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-09</td>
-        <td class="stc">1:42</td>
-        <td>해변</td>
-        <td>고봉이가 일부러 느릿느릿 걸으며 선글라스 낀 것처럼 눈 가늘게 뜨고 조개를 한 개 집어든다. 반짝반짝 빛나는 흰 조개. 흡족한 표정.</td>
+        <td class="snum">S-09</td><td class="stc">1:42</td>
+        <td>고봉이가 눈 가늘게 뜨고 반짝이는 흰 조개 하나를 집어든다. 흡족한 표정.</td>
         <td class="sdialogue">"역시 나는 눈이 좋아. 이게 제일이야."</td>
         <td class="scam">고봉이 로우앵글. 빛 반사 이펙트.</td>
-        <td class="snote">대조 캐릭터 확립</td>
+        <td class="snote">대비 캐릭터 확립</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-09','고봉이가 반짝이는 조개를 자랑스럽게 집어드는 장면','black fluffy cat character picking up a shiny white pearlescent seashell with a proud self-satisfied expression, shell sparkles with light, low angle shot looking up, beach background, children\'s 3D animation, soft rim lighting, satisfied smirk --ar 16:9 --v 7 --stylize 110','(masterpiece), black fluffy cat, holding shiny seashell, proud expression, beach, low angle, children 3D animation, sparkle effect')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-10</td>
-        <td class="stc">1:52</td>
-        <td>해변</td>
-        <td>토리가 팔에 조개를 잔뜩 쌓아올린다. 흘러내리는 걸 겨우 붙잡으며 "전부 가져가면 안 되나?" 하는 눈빛.</td>
+        <td class="snum">S-10</td><td class="stc">1:52</td>
+        <td>토리가 팔에 조개를 잔뜩 쌓아올린다. 흘러내리는 걸 겨우 붙잡으며.</td>
         <td class="sdialogue">"이것도 예쁘고… 이것도 예쁘고… 이것도…"</td>
         <td class="scam">미디엄샷. 조개 탑이 흔들리는 코믹 컷.</td>
         <td class="snote">코믹 릴리프</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-10','토리가 조개를 잔뜩 쌓아올려 겨우 들고 있는 장면','squirrel character struggling to hold a huge precarious stack of colorful seashells, wide worried eyes, shells wobbling and about to fall, comic book physics, beach background, children\'s 3D animation, funny moment --ar 16:9 --v 7 --stylize 120','(masterpiece), squirrel character, giant pile of seashells, struggling, comical expression, beach, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-11</td>
-        <td class="stc">2:02</td>
-        <td>해변</td>
-        <td>도찌가 조개 하나를 들고 들여다보고, 두드려보고, 귀에 대어 소리 듣고, 냄새까지 맡아본다. 매우 신중.</td>
+        <td class="snum">S-11</td><td class="stc">2:02</td>
+        <td>도찌가 조개 하나를 들여다보고, 두드려보고, 귀에 대고, 냄새까지 맡아본다. 매우 신중.</td>
         <td class="sdialogue">"음… 이 소리…"</td>
         <td class="scam">도찌 클로즈업. 꼼꼼한 동작 연속 컷.</td>
-        <td class="snote">복선 — 달봉이와 닮은 행동</td>
+        <td class="snote">복선 — 달봉이와 닮음</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-11','도찌가 조개를 꼼꼼하게 검사하는 장면','hedgehog character carefully examining a seashell with extreme attention — holding it up to the light, tapping it, pressing it to ear, sniffing it, series of close-up inspection shots, very focused expression, soft beach light, children\'s 3D animation --ar 16:9 --v 7 --stylize 100','(masterpiece), hedgehog character, carefully examining seashell, close-up inspection, focused expression, beach, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-12</td>
-        <td class="stc">2:14</td>
-        <td>해변 한쪽 구석</td>
-        <td>오구리가 혼자 조금 떨어진 곳에서 조개를 뒤지고 있다. 반짝이는 것들이 없는 구석. 뭔가를 발견하고 걸음을 멈춘다.</td>
+        <td class="snum">S-12</td><td class="stc">2:14</td>
+        <td>오구리가 혼자 조금 떨어진 구석에서 조개를 뒤지고 있다. 뭔가를 발견하고 걸음을 멈춘다.</td>
         <td class="sdialogue">—</td>
         <td class="scam">오구리 뒷모습 → 발밑 클로즈업</td>
-        <td class="snote">핵심 발견 씬 전조</td>
+        <td class="snote">핵심 발견 전조</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-12','오구리가 해변 구석에서 혼자 조개를 찾다 걸음을 멈추는 장면','platypus character alone in a quiet corner of the beach, back to camera, searching through shells, suddenly stopping and looking down, moment of stillness amid the busy background, soft warm light, children\'s 3D animation, contemplative mood --ar 16:9 --v 7 --stylize 100','(masterpiece), platypus character, alone on beach, searching shells, stopping, back view, contemplative, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-13</td>
-        <td class="stc">2:22</td>
-        <td>해변 구석</td>
-        <td>오구리의 손이 울퉁불퉁하고 수수한 갈색 조개 하나를 들어올린다. 전혀 반짝이지 않는다. 크기도 평범하다. 그런데 왠지 모르게 오구리는 그 조개에서 눈을 떼지 못한다.</td>
-        <td class="sdialogue">(혼잣말, 작게) "… 이거 왠지 마음에 걸리네."</td>
+        <td class="snum">S-13</td><td class="stc">2:22</td>
+        <td>오구리 손이 울퉁불퉁하고 수수한 갈색 조개를 들어올린다. 전혀 반짝이지 않음. 그런데 오구리가 눈을 떼지 못한다.</td>
+        <td class="sdialogue">(혼잣말) "… 이거 왠지 마음에 걸리네."</td>
         <td class="scam">조개 익스트림 클로즈업. 오구리 눈 클로즈업.</td>
         <td class="snote">★ 핵심 오브젝트 첫 등장</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-13','오구리가 수수한 갈색 조개를 들어올리는 장면 — 핵심 오브젝트 등장','extreme close-up of a small platypus hand holding a rough, bumpy, unremarkable brown-gray seashell — not shiny, not colorful, just plain — soft warm beach light, the shell casting a small shadow, depth of field blur on background, children\'s 3D animation quality, intimate and quiet mood --ar 16:9 --v 7 --stylize 80','(masterpiece), close-up platypus hand holding plain rough brown seashell, soft lighting, shallow depth of field, intimate, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-14</td>
-        <td class="stc">2:36</td>
-        <td>해변</td>
-        <td>삐까가 오구리 옆으로 살금살금 다가온다. 오구리 손의 조개를 들여다보고 잠깐 생각하다가 말한다.</td>
+        <td class="snum">S-14</td><td class="stc">2:36</td>
+        <td>삐까가 살금살금 다가와 오구리 조개를 보더니 "나도 이게 좋아 보여"라고 말한다.</td>
         <td class="sdialogue">"… 나도 이게 좋아 보여. 왠지 모르겠지만."</td>
         <td class="scam">투샷. 오구리와 삐까 나란히.</td>
         <td class="snote">첫 번째 지지자</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-14','삐까가 오구리 옆에서 조개를 함께 바라보며 지지해주는 장면','platypus and pikachu-like character side by side on beach, both looking at the plain shell in platypus\'s hand, pikachu character with a thoughtful warm expression, gentle moment of quiet support, soft afternoon light, children\'s 3D animation, warm friendship scene --ar 16:9 --v 7 --stylize 100','(masterpiece), platypus and pikachu characters, side by side, looking at shell together, warm friendship, beach, soft light, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
     </tbody>
   </table>
@@ -801,65 +562,55 @@
     <span class="act-time">2:50 ~ 4:00</span>
   </div>
   <table class="scene-table">
-    <thead>
-      <tr>
-        <th>씬</th><th>타임</th><th>배경</th><th>액션</th><th>대사</th><th>카메라</th><th>포인트</th>
-      </tr>
-    </thead>
+    <thead><tr><th>씬</th><th>타임</th><th>배경 / 액션</th><th>대사</th><th>카메라</th><th>연출포인트</th><th>프롬프트</th></tr></thead>
     <tbody>
       <tr>
-        <td class="snum">S-15</td>
-        <td class="stc">2:50</td>
-        <td>해변</td>
-        <td>우야가 자기 색깔 예쁜 조개를 자랑스럽게 들고 오다가 오구리 손의 조개를 보고 고개를 갸웃한다. 친절하게 말하지만 오구리를 흔든다.</td>
+        <td class="snum">S-15</td><td class="stc">2:50</td>
+        <td>우야가 자기 예쁜 조개를 들고 오다가 오구리 조개를 보고 고개를 갸웃함. 친절하지만 오구리를 흔드는 말.</td>
         <td class="sdialogue">"오구리야, 다른 거 더 찾아볼까? 달봉이아재한테 더 예쁜 걸 드리고 싶지 않아?"</td>
         <td class="scam">우야 → 오구리 반응 컷</td>
         <td class="snote">내면 갈등 촉발</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-15','우야가 무심코 오구리의 선택을 흔드는 말을 하는 장면','fox character casually suggesting to platypus to find a better shell, fox holding a pretty pink-colored shell, platypus looking uncertain, subtle emotional shift in platypus expression, beach background, children\'s 3D animation, natural conversation shot --ar 16:9 --v 7 --stylize 100','(masterpiece), fox and platypus characters, conversation, fox with pretty shell, platypus uncertain expression, beach, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-16</td>
-        <td class="stc">3:02</td>
-        <td>해변</td>
-        <td>오구리가 손의 조개와 우야의 조개를 번갈아 본다. 비교 컷. 우야 조개는 분홍빛에 윤기가 흐른다. 오구리 조개는 그냥 갈색.</td>
+        <td class="snum">S-16</td><td class="stc">3:02</td>
+        <td>오구리가 손의 조개와 우야의 조개를 번갈아 본다. 우야 조개는 분홍빛에 윤기. 오구리 조개는 그냥 갈색.</td>
         <td class="sdialogue">—</td>
         <td class="scam">두 조개 나란히 비교 컷. 오구리 표정 클로즈업.</td>
         <td class="snote">시각적 대비 강조</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-16','두 조개를 나란히 비교하는 컷 — 화려한 것 vs 수수한 것','split-frame comparison: left side — a shiny beautiful pink iridescent seashell with soft sparkles; right side — a plain rough brown bumpy seashell with no shine. Dramatic lighting contrast between the two. Symbolic visual, children\'s 3D animation style, the comparison makes the plain shell look even more humble --ar 16:9 --v 7 --stylize 120','(masterpiece), two seashells comparison, shiny beautiful shell vs plain rough shell, dramatic lighting contrast, symbolic, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-17</td>
-        <td class="stc">3:10</td>
-        <td>해변</td>
-        <td>고봉이가 지나가며 오구리 조개를 보고 코웃음 친다. 치토스도 "그게 선물이야?" 하는 눈빛. 오구리 어깨가 살짝 움츠러든다.</td>
-        <td class="sdialogue">(고봉이) "음…" (아무 말 안 하고 지나감)<br>(치토스) "오구리 거는 좀… 그렇지?"</td>
-        <td class="scam">오구리의 시점에서 친구들 반응을 보는 주관적 숏</td>
+        <td class="snum">S-17</td><td class="stc">3:10</td>
+        <td>고봉이가 지나가며 오구리 조개를 보고 말없이 코웃음. 치토스도 "그게 선물이야?" 눈빛. 오구리 어깨 살짝 움츠러듦.</td>
+        <td class="sdialogue">(치토스) "오구리 거는 좀… 그렇지?"</td>
+        <td class="scam">오구리 시점에서 보는 주관적 숏</td>
         <td class="snote">감정 깊어지는 포인트</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-17','고봉이와 치토스의 반응에 오구리 어깨가 움츠러드는 장면','platypus character seen from slightly below, black cat and baby cheetah in background looking dismissively at the plain shell, platypus shoulders slightly drooping with self-doubt, subjective POV shot, subtle emotional expression, children\'s 3D animation, soft sad lighting on platypus --ar 16:9 --v 7 --stylize 100','(masterpiece), platypus character, self-doubt, other characters looking dismissively, subjective view, children 3D animation, emotional')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-18</td>
-        <td class="stc">3:22</td>
-        <td>해변</td>
-        <td>오구리가 조개를 천천히 내려다본다. 내려놓을까 말까. 조개를 모래 위에 내려놓으려다 멈춘다. 삐까가 오구리 팔을 살짝 잡는다.</td>
-        <td class="sdialogue">(삐까, 작은 소리) "… 그냥 이걸로 가자."</td>
-        <td class="scam">오구리 손 클로즈업. 조개 내려놓으려다 멈추는 순간.</td>
+        <td class="snum">S-18</td><td class="stc">3:22</td>
+        <td>오구리가 조개를 모래에 내려놓으려다 멈춘다. 삐까가 오구리 팔을 살짝 잡는다.</td>
+        <td class="sdialogue">(삐까) "… 그냥 이걸로 가자."</td>
+        <td class="scam">오구리 손 클로즈업. 내려놓으려다 멈추는 순간.</td>
         <td class="snote">선택의 순간 1</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-18','오구리가 조개를 내려놓으려다 멈추고, 삐까가 팔을 잡는 장면','extreme close-up of platypus hand holding plain shell above the sand, about to let it go, another small paw (pikachu character) gently reaching in to hold platypus\'s arm, frozen moment of decision, warm beach light, emotional depth, children\'s 3D animation --ar 16:9 --v 7 --stylize 90','(masterpiece), close-up hands, platypus about to drop shell, friend holding arm, decisive moment, beach, children 3D animation, emotional')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-19</td>
-        <td class="stc">3:32</td>
-        <td>해변</td>
-        <td>오구리가 잠시 눈을 감는다. 그리고 그 조개를 다시 손에 꼭 쥔다. 표정은 아직 자신 없지만, 눈에 조금 결심이 보인다.</td>
+        <td class="snum">S-19</td><td class="stc">3:32</td>
+        <td>오구리가 잠시 눈을 감는다. 그리고 조개를 다시 손에 꼭 쥔다. 아직 자신 없지만 눈에 결심이 보인다.</td>
         <td class="sdialogue">—</td>
         <td class="scam">오구리 얼굴 미디엄 클로즈업. 손에 쥔 조개 인서트 컷.</td>
         <td class="snote">내면 결심 — 대사 없이 연기로</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-19','오구리가 눈을 감았다 뜨며 조개를 꼭 쥐는 결심 장면','platypus character close-up, eyes gently closed then opening with quiet resolve, holding the plain shell tightly in both hands, slight uplift in posture, soft warm light on face, interior emotional moment, children\'s 3D animation, cinematic close-up, no dialogue needed --ar 16:9 --v 7 --stylize 100','(masterpiece), platypus character, eyes closed then open, quiet resolve, holding shell, emotional close-up, children 3D animation, cinematic')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-20</td>
-        <td class="stc">3:44</td>
-        <td>해변 → 마을 길</td>
-        <td>아이들이 각자 고른 조개를 들고 달봉이 집으로 향한다. 해피쿼카가 앞서서 "파티 준비해야지!" 하며 뛴다. 오구리는 뒤에서 조개를 꼭 쥐고 걷는다.</td>
+        <td class="snum">S-20</td><td class="stc">3:44</td>
+        <td>아이들이 각자 조개를 들고 달봉이 집으로 향함. 해피쿼카 앞서 뛴다. 오구리는 뒤에서 조개를 꼭 쥐고 걷는다.</td>
         <td class="sdialogue">"파티 시작이야아아!"</td>
         <td class="scam">행진 컷. 오구리 꼬리 컷으로 연결.</td>
         <td class="snote">장면 전환</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-20','친구들이 모두 조개를 들고 파티장으로 향하는 장면','group of animal characters walking along a forest path toward a distant cozy cottage, each holding their chosen seashell, quokka leading the group with energy, platypus walking quietly at the back clutching shell tightly, golden afternoon light through trees, children\'s 3D animation, warm journey scene --ar 16:9 --v 7 --stylize 110','(masterpiece), group of animals walking, forest path, each holding seashell, platypus at back, warm afternoon light, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
     </tbody>
   </table>
@@ -871,117 +622,99 @@
     <span class="act-time">4:00 ~ 5:10</span>
   </div>
   <table class="scene-table">
-    <thead>
-      <tr>
-        <th>씬</th><th>타임</th><th>배경</th><th>액션</th><th>대사</th><th>카메라</th><th>포인트</th>
-      </tr>
-    </thead>
+    <thead><tr><th>씬</th><th>타임</th><th>배경 / 액션</th><th>대사</th><th>카메라</th><th>연출포인트</th><th>프롬프트</th></tr></thead>
     <tbody>
       <tr>
-        <td class="snum">S-21</td>
-        <td class="stc">4:00</td>
-        <td>달봉이 집 마당</td>
-        <td>꽃과 풍선으로 꾸며진 마당. 해피쿼카엘리자베스3세가 테이블에 음식을 잔뜩 차리고 있다. 달봉이가 낡은 외투를 입고 조용히 앉아서 차를 마신다.</td>
+        <td class="snum">S-21</td><td class="stc">4:00</td>
+        <td>꽃과 풍선으로 꾸며진 달봉이 집 마당. 해피쿼카가 테이블에 음식을 차림. 달봉이가 낡은 외투 입고 차를 마신다.</td>
         <td class="sdialogue">(달봉이) "오, 다들 왔구나."</td>
         <td class="scam">마당 전경 와이드샷. 달봉이 등장 미디엄샷.</td>
         <td class="snote">파티 분위기 설정</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-21','달봉이 집 마당 파티 장소 / 꽃과 풍선으로 장식된 따뜻한 공간','cozy garden party scene, small cottage yard decorated with colorful wildflowers and pastel balloons, a rustic wooden table with food and treats, a small sea otter character in a worn burlap coat sitting peacefully drinking tea, warm golden late-afternoon light, children\'s 3D animation, welcoming atmosphere --ar 16:9 --v 7 --stylize 110','(masterpiece), cozy garden party, flowers, balloons, rustic table, sea otter character, warm afternoon light, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-22</td>
-        <td class="stc">4:12</td>
-        <td>달봉이 집 마당</td>
-        <td>아이들이 우르르 달봉이에게 달려가 "생일 축하해요!!" 를 외친다. 달봉이가 흐뭇하게 웃는다.</td>
+        <td class="snum">S-22</td><td class="stc">4:12</td>
+        <td>아이들이 달봉이에게 "생일 축하해요!!" 외친다. 달봉이가 흐뭇하게 웃는다.</td>
         <td class="sdialogue">"생일 축하해요!!" / "달봉이아재 몇 살이에요?" / "비밀이야~"</td>
         <td class="scam">군중 리액션 → 달봉이 클로즈업</td>
         <td class="snote">따뜻한 분위기</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-22','아이들이 달봉이에게 생일 축하 인사를 하는 장면','group of excited animal children characters surrounding a warm sea otter elder, all cheering and wishing happy birthday, otter smiling with deep contentment, birthday decorations around, warm light, joyful celebration energy, children\'s 3D animation, heartwarming group shot --ar 16:9 --v 7 --stylize 110','(masterpiece), birthday celebration, animal children surrounding elder sea otter, cheering, warm happiness, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-23</td>
-        <td class="stc">4:22</td>
-        <td>달봉이 집 마당</td>
-        <td>선물 시간. 해피쿼카가 "자자, 선물 드리자!" 하며 분위기를 이끈다. 아이들이 차례차례 달봉이에게 조개를 내민다.</td>
-        <td class="sdialogue">"제가 제일 반짝이는 거 골랐어요!" (고봉이)<br>"저는 제일 크고 멋진 걸요!" (치토스)</td>
-        <td class="scam">각 캐릭터 선물 전달 몽타주 컷</td>
+        <td class="snum">S-23</td><td class="stc">4:22</td>
+        <td>선물 시간. 아이들이 차례차례 달봉이에게 조개를 내민다. 서로 자랑하는 분위기.</td>
+        <td class="sdialogue">"제가 제일 반짝이는 거 골랐어요!" / "저는 제일 크고 멋진 걸요!"</td>
+        <td class="scam">각 캐릭터 선물 전달 몽타주</td>
         <td class="snote">경쟁적 분위기 최고조</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-23','아이들이 달봉이에게 차례로 조개를 선물하는 장면','montage-style composition: various small animal characters proudly presenting colorful shiny seashells to the sea otter elder, each with a proud expression, a variety of sparkly beautiful shells, gift-giving ceremony atmosphere, children\'s 3D animation --ar 16:9 --v 7 --stylize 110','(masterpiece), gift giving montage, animal characters presenting shells to elder, proud expressions, shiny shells, party atmosphere, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-24</td>
-        <td class="stc">4:38</td>
-        <td>달봉이 집 마당</td>
-        <td>아이들이 다 드리고 나자 오구리만 남는다. 모두의 시선이 오구리에게 향한다. 오구리가 꼭 쥐고 있던 조개를 꺼내려 하다가 잠깐 멈춘다.</td>
+        <td class="snum">S-24</td><td class="stc">4:38</td>
+        <td>아이들이 다 드리고 나자 오구리만 남는다. 모두의 시선이 오구리에게 향한다.</td>
         <td class="sdialogue">—</td>
-        <td class="scam">오구리에게 몰리는 시선 컷. 오구리 표정 클로즈업.</td>
+        <td class="scam">오구리에게 몰리는 시선 컷. 표정 클로즈업.</td>
         <td class="snote">긴장감 최고조</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-24','모두의 시선이 오구리에게 향하는 긴장감 있는 장면','platypus character standing alone in the spotlight of all eyes, group of animal friends watching expectantly, platypus holding hidden plain shell behind back, tense but important moment, slight nervous sweat, children\'s 3D animation, dramatic lighting that isolates the platypus --ar 16:9 --v 7 --stylize 100','(masterpiece), platypus character in spotlight, all eyes on them, tense moment, holding shell, nervous, dramatic lighting, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-25</td>
-        <td class="stc">4:48</td>
-        <td>달봉이 집 마당</td>
+        <td class="snum">S-25</td><td class="stc">4:48</td>
         <td>오구리가 눈을 질끈 감았다 뜨고, 수수한 조개를 두 손으로 달봉이에게 내민다. 목소리가 약간 떨린다.</td>
         <td class="sdialogue">"달봉이아재… 저는… 더 예쁜 걸 드리고 싶었는데… 이게 왠지 달봉이아재한테 드리고 싶었어요."</td>
         <td class="scam">오구리 얼굴 클로즈업 → 조개 건네는 손 클로즈업</td>
         <td class="snote">★ 감정 정점. 핵심 씬.</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-25','오구리가 떨리는 손으로 수수한 조개를 달봉이에게 건네는 장면 — 에피소드 감정 정점','emotional close-up: small platypus hands trembling slightly, presenting a plain rough brown seashell as a gift to the sea otter elder, platypus expression vulnerable but genuine, sincere eyes, softly lit, everything else slightly blurred, this is the most important emotional beat, children\'s 3D animation, Pixar-level expression quality --ar 16:9 --v 7 --stylize 90','(masterpiece), emotional close-up, platypus hands offering plain shell, trembling, sincere expression, vulnerable, pivotal scene, children 3D animation, Pixar quality')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-26</td>
-        <td class="stc">5:02</td>
-        <td>달봉이 집 마당</td>
-        <td>달봉이가 조개를 받아 손바닥 위에 올려놓고 조용히 바라본다. 아무 말 없이 미소 짓는다. 그 미소가 뭔가 특별하다. 오구리는 불안한 눈빛.</td>
+        <td class="snum">S-26</td><td class="stc">5:02</td>
+        <td>달봉이가 조개를 손바닥에 올려놓고 조용히 바라본다. 말 없이 의미 있는 미소. 오구리는 불안한 눈빛.</td>
         <td class="sdialogue">—</td>
         <td class="scam">달봉이 손 위 조개 클로즈업. 달봉이 표정 클로즈업.</td>
-        <td class="snote">달봉이의 반응 — 대사 없이</td>
+        <td class="snote">달봉이 반응 — 대사 없이</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-26','달봉이가 조개를 손바닥에 올려놓고 조용히 바라보는 장면','sea otter elder character cradling a plain rough brown seashell in open palm, looking at it with a knowing, warm, quiet smile — as if recognizing something others cannot see, soft light on both the otter and the shell, children\'s 3D animation, contemplative moment of wisdom --ar 16:9 --v 7 --stylize 90','(masterpiece), sea otter elder, cradling plain shell in palm, knowing warm smile, wisdom, quiet moment, soft light, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
     </tbody>
   </table>
 
-  <!-- ACT 5 : CLIMAX -->
-  <div class="act-header" style="background:var(--gold);">
+  <!-- ACT 5 CLIMAX -->
+  <div class="act-header" style="background:linear-gradient(135deg,#B7860B,var(--gold));">
     <span class="act-num" style="background:rgba(255,255,255,.25);">ACT 5</span>
     <span class="act-title">★ 클라이맥스 — 진주</span>
     <span class="act-time">5:10 ~ 6:00</span>
   </div>
   <table class="scene-table">
-    <thead>
-      <tr>
-        <th>씬</th><th>타임</th><th>배경</th><th>액션</th><th>대사</th><th>카메라</th><th>포인트</th>
-      </tr>
-    </thead>
+    <thead><tr><th>씬</th><th>타임</th><th>배경 / 액션</th><th>대사</th><th>카메라</th><th>연출포인트</th><th>프롬프트</th></tr></thead>
     <tbody>
       <tr class="climax">
-        <td class="snum" style="color:var(--gold);">S-27</td>
-        <td class="stc">5:10</td>
-        <td>달봉이 집 마당</td>
-        <td>달봉이가 조개를 천천히 양손으로 감싸 쥐더니, 손가락으로 가볍게 톡 — 톡 — 두드린다. 독특한 행동. 주변이 조용해진다.</td>
+        <td class="snum" style="color:var(--gold);">S-27</td><td class="stc">5:10</td>
+        <td>달봉이가 조개를 양손으로 감싸 쥐더니, 손가락으로 가볍게 톡 — 톡 — 두드린다. 주변이 조용해진다.</td>
         <td class="sdialogue">—</td>
-        <td class="scam">달봉이 손 익스트림 클로즈업. 톡톡 두드리는 손가락 디테일.</td>
-        <td class="snote">★ 음악 페이드 아웃 → 정적</td>
+        <td class="scam">달봉이 손 익스트림 클로즈업. 톡톡 손가락 디테일.</td>
+        <td class="snote">★ BGM 페이드 아웃 → 정적</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-27','달봉이가 조개를 손가락으로 톡톡 두드리는 장면 — 클라이맥스 직전','extreme close-up of sea otter elder\'s weathered hands gently tapping a plain brown seashell with one finger — tap, tap, tap — everything around goes quiet, tension before the reveal, macro detail shot of fur-covered fingers on rough shell surface, anticipatory silence, children\'s 3D animation --ar 16:9 --v 7 --stylize 80','(masterpiece), extreme close-up, sea otter hands, tapping plain shell, tension before reveal, macro detail, anticipation, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr class="climax">
-        <td class="snum" style="color:var(--gold);">S-28</td>
-        <td class="stc">5:20</td>
-        <td>달봉이 집 마당</td>
+        <td class="snum" style="color:var(--gold);">S-28</td><td class="stc">5:20</td>
         <td>조개가 천천히 열린다. 그 안에서 작고 맑게 빛나는 진주 하나가 드러난다. 진주에서 부드러운 빛이 퍼져나간다.</td>
         <td class="sdialogue">—</td>
-        <td class="scam">조개 열리는 슬로모션. 진주 빛 이펙트 → 주변 캐릭터 얼굴에 빛 반사.</td>
-        <td class="snote">★★ 핵심 클라이맥스. 음악 전환 (맑고 따뜻한 멜로디)</td>
+        <td class="scam">조개 열리는 슬로모션. 진주 빛 이펙트. 주변 얼굴에 빛 반사.</td>
+        <td class="snote">★★ 핵심 클라이맥스. 음악 전환</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-28','조개가 천천히 열리며 진주가 드러나는 클라이맥스 장면','slow motion reveal: a plain rough brown seashell slowly opening in sea otter\'s hands, inside a small perfect luminous pearl glowing with soft warm golden-white light, light rays emanating from the pearl and reflecting on surrounding faces, magical moment, children\'s 3D animation, cinematic lighting shift, this is the emotional climax --ar 16:9 --v 7 --stylize 150','(masterpiece), seashell slowly opening, luminous pearl revealed, warm golden light rays, magical moment, cinematic, children 3D animation, emotional climax, slow motion feel')">🎨 프롬프트</button></td>
       </tr>
       <tr class="climax">
-        <td class="snum" style="color:var(--gold);">S-29</td>
-        <td class="stc">5:28</td>
-        <td>달봉이 집 마당</td>
-        <td>아이들의 리액션 몽타주. 치토스: "엥?!" 하며 눈 커짐. 고봉이: 입을 다물지 못함. 우야: 놀라며 오구리를 본다. 토리: 고개 끄덕. 덕심이: "와아~" 손뼉. 찐찔이: 입이 떡 벌어짐. 해피쿼카: 펄쩍 뜀.</td>
+        <td class="snum" style="color:var(--gold);">S-29</td><td class="stc">5:28</td>
+        <td>아이들 리액션 몽타주. 치토스: "엥?!" 눈 커짐. 고봉이: 입 못 다뭄. 우야: 놀라며 오구리를 봄. 토리 고개 끄덕. 덕심이 손뼉. 찐찔이 입 떡 벌어짐. 해피쿼카 펄쩍 뜀.</td>
         <td class="sdialogue">"엥?!" / "어??" / "와아~!" / "말했잖아 달봉이아재는 뭔가 다르다고!"</td>
-        <td class="scam">빠른 리액션 컷 몽타주. 각 캐릭터 개성 살린 반응.</td>
-        <td class="snote">리액션 몽타주 — 각 캐릭터 개성 극대화</td>
+        <td class="scam">빠른 리액션 컷 몽타주</td>
+        <td class="snote">개성 살린 리액션 몽타주</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-29','모든 캐릭터들의 놀란 리액션 몽타주','reaction montage panel: 6 different animal characters all reacting with shocked amazement — baby cheetah jaw drop, black cat speechless, fox looking at platypus with wide eyes, squirrel nodding, baby duck clapping, chinchilla mouth wide open, pearl light reflected on all their faces, children\'s 3D animation, quick cut energy, comic book panel feel --ar 16:9 --v 7 --stylize 130','(masterpiece), reaction montage, multiple animal characters, shocked amazement, pearl light reflection, varied expressions, comic energy, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr class="climax">
-        <td class="snum" style="color:var(--gold);">S-30</td>
-        <td class="stc">5:38</td>
-        <td>달봉이 집 마당</td>
-        <td>오구리가 멍하니 진주를 바라본다. 삐까가 오구리 손을 꼭 잡는다. 오구리 눈에 눈물이 살짝 맺힌다 — 슬프지 않은, 따뜻한 눈물.</td>
+        <td class="snum" style="color:var(--gold);">S-30</td><td class="stc">5:38</td>
+        <td>오구리가 멍하니 진주를 바라본다. 삐까가 오구리 손을 꼭 잡는다. 오구리 눈에 눈물이 살짝 — 슬프지 않은, 따뜻한 눈물.</td>
         <td class="sdialogue">—</td>
         <td class="scam">오구리 얼굴 클로즈업. 눈 안의 진주빛 반사.</td>
         <td class="snote">감정 최고점</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-30','오구리가 눈물을 글썽이며 진주를 바라보는 장면 — 감정 최고점','close-up of platypus character face in a moment of overwhelmed warmth — eyes glistening with happy tears, pearl light reflected in the eyes, small pikachu character\'s hand holding platypus\'s hand from below in silent support, the most tender and emotional shot of the episode, children\'s 3D animation, Pixar-level emotional expression --ar 16:9 --v 7 --stylize 90','(masterpiece), platypus face close-up, happy tears glistening, pearl light in eyes, friend holding hand, tender moment, emotional peak, Pixar quality, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
     </tbody>
   </table>
@@ -993,243 +726,144 @@
     <span class="act-time">6:00 ~ 7:00</span>
   </div>
   <table class="scene-table">
-    <thead>
-      <tr>
-        <th>씬</th><th>타임</th><th>배경</th><th>액션</th><th>대사</th><th>카메라</th><th>포인트</th>
-      </tr>
-    </thead>
+    <thead><tr><th>씬</th><th>타임</th><th>배경 / 액션</th><th>대사</th><th>카메라</th><th>연출포인트</th><th>프롬프트</th></tr></thead>
     <tbody>
       <tr>
-        <td class="snum">S-31</td>
-        <td class="stc">6:00</td>
-        <td>달봉이 집 마당</td>
-        <td>달봉이가 진주와 조개를 나란히 손바닥에 올려놓고 오구리에게 내보인다. 그리고 차분하게, 천천히 말한다.</td>
+        <td class="snum">S-31</td><td class="stc">6:00</td>
+        <td>달봉이가 진주와 조개를 나란히 손바닥에 올려 오구리에게 내보인다. 천천히, 차분하게 말한다.</td>
         <td class="sdialogue">"예쁜 건 금방 눈에 띄지만, 소중한 건 천천히 알게 되기도 한단다."</td>
         <td class="scam">달봉이 손 위 진주+조개 클로즈업 → 달봉이 얼굴 클로즈업</td>
         <td class="snote">★ 핵심 대사 1</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-31','달봉이가 진주와 조개를 함께 보여주며 핵심 대사를 하는 장면','sea otter elder character holding both the plain shell and the luminous pearl side by side in open palm, looking kindly at the platypus, warm golden light, close-up of wise face delivering the key wisdom line, gentle authoritative presence, children\'s 3D animation, this is the wisdom moment --ar 16:9 --v 7 --stylize 100','(masterpiece), sea otter elder, holding shell and pearl together, wise kind expression, wisdom delivery, warm golden light, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-32</td>
-        <td class="stc">6:12</td>
-        <td>달봉이 집 마당</td>
+        <td class="snum">S-32</td><td class="stc">6:12</td>
         <td>달봉이가 조용히 오구리를 바라보며 두 번째 말을 한다. 오구리가 눈을 크게 뜬다.</td>
         <td class="sdialogue">"네가 가져온 건 조개만이 아니야. 고른 마음도 함께 왔구나."</td>
         <td class="scam">달봉이 → 오구리 투샷. 따뜻한 조명.</td>
         <td class="snote">★ 핵심 대사 2</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-32','달봉이와 오구리가 마주보는 클로징 투샷','warm two-shot: sea otter elder and platypus character facing each other, elder looking at platypus with deep warmth and recognition, platypus eyes wide open in realization, warm golden afternoon light bathing both characters, intimate and quiet, children\'s 3D animation, the moment of full understanding --ar 16:9 --v 7 --stylize 100','(masterpiece), sea otter and platypus two-shot, warm eye contact, realization moment, golden light, intimate, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-33</td>
-        <td class="stc">6:22</td>
-        <td>달봉이 집 마당</td>
-        <td>오구리가 손으로 눈가를 닦고 씩 웃는다. 삐까가 "나 알아봤잖아!" 하며 뿌듯해한다. 주변 아이들도 웃음.</td>
-        <td class="sdialogue">(오구리, 작게) "…감사해요, 달봉이아재."<br>(삐까) "나 알아봤잖아!!"</td>
+        <td class="snum">S-33</td><td class="stc">6:22</td>
+        <td>오구리가 눈가를 닦고 씩 웃는다. 삐까가 "나 알아봤잖아!" 하며 뿌듯해한다.</td>
+        <td class="sdialogue">(오구리) "…감사해요, 달봉이아재."<br>(삐까) "나 알아봤잖아!!"</td>
         <td class="scam">오구리 클로즈업. 주변 반응 그룹샷.</td>
         <td class="snote">감정 해소</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-33','오구리가 웃으며 감사 인사를 하고 삐까가 뿌듯해하는 장면','platypus character wiping eye and breaking into a warm smile for the first time, posture more upright and open, pikachu character behind jumping with pride, group of friends smiling around them, party atmosphere returning, children\'s 3D animation, emotional release and warmth --ar 16:9 --v 7 --stylize 110','(masterpiece), platypus smiling warmly, upright posture, pikachu character proud, friends smiling, emotional release, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-34</td>
-        <td class="stc">6:32</td>
-        <td>달봉이 집 마당</td>
-        <td>우야가 오구리 옆으로 다가와 눈이 마주친다. 아까 "다른 거 더 찾아볼까"라고 했던 것에 대한 미안함. 말없이 어깨를 툭 친다.</td>
-        <td class="sdialogue">(우야, 작게) "…미안."<br>(오구리) "아니야, 괜찮아."</td>
+        <td class="snum">S-34</td><td class="stc">6:32</td>
+        <td>우야가 오구리 옆으로 다가와 눈이 마주친다. 말없이 어깨를 툭 친다. 오구리가 웃는다.</td>
+        <td class="sdialogue">(우야) "…미안." (오구리) "아니야, 괜찮아."</td>
         <td class="scam">우야-오구리 투샷.</td>
         <td class="snote">부수적 화해</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-34','우야가 오구리에게 사과하는 조용한 화해 장면','fox character quietly walking up to platypus, a brief awkward-but-sincere moment of apology — fox lightly bumping platypus\'s shoulder, both characters in soft side lighting, small genuine smiles, quiet reconciliation, party sounds in background, children\'s 3D animation, understated emotional moment --ar 16:9 --v 7 --stylize 95','(masterpiece), fox and platypus, quiet reconciliation, shoulder bump, sincere apology, soft side lighting, children 3D animation, understated')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-35</td>
-        <td class="stc">6:42</td>
-        <td>달봉이 집 마당</td>
-        <td>도찌가 달봉이 옆에 와서 아까 자기도 조개를 꼼꼼하게 들여다봤는데 비슷한 마음이었다고 조용히 말한다. 달봉이가 빙긋 웃으며 도찌 머리를 쓰다듬는다.</td>
+        <td class="snum">S-35</td><td class="stc">6:42</td>
+        <td>도찌가 달봉이에게 "저도 조개 두드려봤어요"라고 조용히 말한다. 달봉이가 빙긋 웃으며 도찌 머리를 쓰다듬는다.</td>
         <td class="sdialogue">(도찌) "저도 조개 두드려봤어요…"<br>(달봉이) "그래, 도찌도 마음으로 골랐구나."</td>
-        <td class="scam">달봉이-도찌 투샷. 따뜻한 컷.</td>
+        <td class="scam">달봉이-도찌 투샷.</td>
         <td class="snote">복선 회수 (도찌의 꼼꼼함)</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-35','달봉이가 도찌 머리를 쓰다듬는 따뜻한 장면 — 복선 회수','sea otter elder gently patting hedgehog character on the head, hedgehog looking up with a shy but happy expression, tender mentor-student moment, warm party light in background, children\'s 3D animation, heartwarming small detail --ar 16:9 --v 7 --stylize 100','(masterpiece), sea otter gently patting hedgehog, mentor moment, tender warm interaction, party background, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-36</td>
-        <td class="stc">6:52</td>
-        <td>달봉이 집 마당</td>
-        <td>파티가 시작된다. 해피쿼카가 "파티 시작이야아!" 를 외치며 음식 테이블로 다들 달려간다. 웃음과 왁자지껄. 달봉이가 진주를 꼭 쥐고 조용히 미소 짓는다.</td>
+        <td class="snum">S-36</td><td class="stc">6:52</td>
+        <td>파티가 시작된다. 해피쿼카 "파티 시작이야아!" 외치며 모두 음식 테이블로 달려간다. 달봉이가 진주를 꼭 쥐고 미소.</td>
         <td class="sdialogue">"파티 시작이야아아아!!"</td>
         <td class="scam">마당 와이드샷. 활기찬 파티 몽타주.</td>
         <td class="snote">에너지 전환</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-36','모두가 신나게 파티를 즐기는 장면','joyful birthday party scene, all animal characters running toward a decorated food table, laughing and celebrating, colorful balloons and flowers, warm golden sunset light, sea otter elder smiling and holding the pearl, the happiest scene of the episode, children\'s 3D animation, wide joyful composition --ar 16:9 --v 7 --stylize 130','(masterpiece), joyful birthday party, all characters celebrating, balloons flowers, golden sunset, happiness, children 3D animation, wide shot')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-37</td>
-        <td class="stc">7:00</td>
-        <td>달봉이 집 마당 / 석양</td>
-        <td>석양이 지는 마당. 아이들이 해피하게 놀고 있는 원경. 오구리가 달봉이 옆에 앉아 같이 하늘을 본다. 조개와 진주가 나란히 놓인 테이블 위 클로즈업. 페이드 아웃.</td>
+        <td class="snum">S-37</td><td class="stc">7:00</td>
+        <td>석양이 지는 마당. 오구리가 달봉이 옆에 앉아 같이 하늘을 본다. 테이블 위 조개+진주 클로즈업. 페이드 아웃.</td>
         <td class="sdialogue">—</td>
         <td class="scam">석양 와이드샷 → 조개+진주 클로즈업 → 페이드 아웃</td>
-        <td class="snote">★ 엔딩 컷. 마지막 이미지.</td>
+        <td class="snote">★ 엔딩 컷</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-37','오구리와 달봉이가 석양을 함께 바라보는 엔딩 장면','peaceful sunset ending shot: platypus and sea otter elder sitting side by side watching the warm orange-pink sunset over the forest, small table beside them with the plain shell and the pearl placed together, comfortable silence, children\'s 3D animation, cinematic wide shot fading to warm gold, the perfect ending image --ar 16:9 --v 7 --stylize 130','(masterpiece), platypus and sea otter elder, sitting together, sunset view, shell and pearl on table, peaceful silence, cinematic ending, warm gold tones, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
     </tbody>
   </table>
 
-  <!-- 보충 씬: 개별 캐릭터 서브씬 -->
+  <!-- BONUS SCENES -->
   <div class="act-header" style="background:var(--sky);">
     <span class="act-num" style="background:rgba(255,255,255,.2);">보충</span>
-    <span class="act-title">개별 캐릭터 서브씬 (편집 시 삽입 가능)</span>
+    <span class="act-title">선택적 서브씬 (편집 시 삽입 가능)</span>
     <span class="act-time">선택적</span>
   </div>
   <table class="scene-table">
-    <thead>
-      <tr>
-        <th>씬</th><th>타임</th><th>배경</th><th>액션</th><th>대사</th><th>카메라</th><th>포인트</th>
-      </tr>
-    </thead>
+    <thead><tr><th>씬</th><th>타임</th><th>배경 / 액션</th><th>대사</th><th>카메라</th><th>연출포인트</th><th>프롬프트</th></tr></thead>
     <tbody>
       <tr>
-        <td class="snum">S-38</td>
-        <td class="stc">조개 찾기 중</td>
-        <td>해변</td>
-        <td>치토스가 빠르게 뛰다가 발에 걸려 넘어진다. 조개들이 와르르 흩어진다. 코믹 씬.</td>
+        <td class="snum">S-38</td><td class="stc">조개 찾기 중</td>
+        <td>치토스가 빠르게 뛰다가 발에 걸려 넘어진다. 조개들이 와르르 흩어진다.</td>
         <td class="sdialogue">"으아악!!"</td>
-        <td class="scam">코믹 슬로모션 낙하 컷</td>
+        <td class="scam">코믹 슬로모션 낙하</td>
         <td class="snote">코믹 릴리프 삽입용</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-38','치토스가 해변에서 넘어지는 코믹 장면','baby cheetah character tripping and falling on beach in slow motion, seashells flying everywhere in arc patterns, comic expression of surprise, sand cloud around, slapstick physics, children\'s 3D animation, funny moment --ar 16:9 --v 7 --stylize 130','(masterpiece), baby cheetah falling, beach, seashells flying, comic slapstick, surprised expression, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-39</td>
-        <td class="stc">파티 전</td>
-        <td>마을 길</td>
+        <td class="snum">S-39</td><td class="stc">파티 전</td>
         <td>토리가 아직도 "하나만 고르라고?"라며 아쉬워하는 장면. 결국 하나 고르고 뒤쫓아간다.</td>
         <td class="sdialogue">"둘은 안 돼? … 하나만 고르는 거야?"</td>
         <td class="scam">토리 클로즈업</td>
         <td class="snote">토리 캐릭터 강화용</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-39','토리가 하나의 조개만 고르며 아쉬워하는 코믹 장면','squirrel character standing on beach looking at two shells in hands with a torn anguished expression, others already walking away in background, comical indecision, children\'s 3D animation, funny --ar 16:9 --v 7 --stylize 120','(masterpiece), squirrel character, indecision between two shells, anguished comical expression, others leaving, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-40</td>
-        <td class="stc">파티 중</td>
-        <td>달봉이 집 마당</td>
+        <td class="snum">S-40</td><td class="stc">파티 중</td>
         <td>달봉이가 오구리에게 진주를 돌려준다. "이건 네가 가져야겠다." 오구리가 양손으로 꼭 받는다.</td>
         <td class="sdialogue">"이건 네가 가져야겠다."</td>
         <td class="scam">진주 넘기는 손 클로즈업</td>
-        <td class="snote">오구리 성장 상징 오브젝트 확립</td>
+        <td class="snote">오구리 성장 상징 확립</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-40','달봉이가 오구리에게 진주를 돌려주는 장면 — 성장 상징','close-up shot of large sea otter hands gently placing a small luminous pearl into small platypus hands — a passing of something precious, soft warm light on both sets of hands, the pearl glowing between them, symbolic and tender moment, children\'s 3D animation, beautiful hand-off composition --ar 16:9 --v 7 --stylize 100','(masterpiece), close-up, sea otter passing pearl to platypus hands, symbolic handoff, warm light, tender moment, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-41</td>
-        <td class="stc">파티 중</td>
-        <td>달봉이 집 마당</td>
-        <td>고봉이가 오구리 옆에 와서 말없이 앉는다. 그리고 짧게 한마디. 오구리가 웃는다.</td>
+        <td class="snum">S-41</td><td class="stc">파티 중</td>
+        <td>고봉이가 오구리 옆에 와서 말없이 앉더니 짧게 한마디. 오구리가 웃는다.</td>
         <td class="sdialogue">(고봉이, 쑥스럽게) "…잘 골랐네."</td>
         <td class="scam">투샷</td>
         <td class="snote">고봉이 캐릭터 완성</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-41','고봉이가 쑥스럽게 오구리에게 "잘 골랐네"라고 말하는 장면','black fluffy cat character sitting next to platypus, looking away slightly embarrassed but saying something sincere with a barely-visible small smile, platypus smiling back warmly, both sitting together, party background, children\'s 3D animation, subtle character moment --ar 16:9 --v 7 --stylize 100','(masterpiece), black cat and platypus sitting together, cat slightly embarrassed, subtle smile, warm moment, party background, children 3D animation')">🎨 프롬프트</button></td>
       </tr>
       <tr>
-        <td class="snum">S-42</td>
-        <td class="stc">엔딩 후</td>
-        <td>몽글숲 마을</td>
-        <td>에필로그. 오구리가 집에 돌아와 진주를 창가에 올려두는 장면. 진주에 석양빛이 반사된다. 나레이션 또는 노래.</td>
-        <td class="sdialogue">(나레이션/노래) "마음으로 고른 것엔, 눈에 안 보이는 것도 담겨있어요."</td>
+        <td class="snum">S-42</td><td class="stc">에필로그</td>
+        <td>오구리가 집에 돌아와 진주를 창가에 올려두는 장면. 진주에 석양빛이 반사된다.</td>
+        <td class="sdialogue">(나레이션) "마음으로 고른 것엔, 눈에 안 보이는 것도 담겨있어요."</td>
         <td class="scam">창가 진주 클로즈업 → 와이드샷 페이드 아웃</td>
         <td class="snote">에피소드 완결 메시지</td>
+        <td><button class="prompt-btn" onclick="showPrompt('S-42','오구리가 집 창가에 진주를 올려두는 에필로그 장면','platypus character at home placing a small luminous pearl on a windowsill, warm amber sunset light streaming through the window, the pearl catching the light and scattering it around the cozy room, peaceful epilogue shot, children\'s 3D animation, the pearl as a treasured keepsake, fade to warm gold --ar 16:9 --v 7 --stylize 120','(masterpiece), platypus at home, placing pearl on windowsill, sunset light, pearl glowing, cozy room, peaceful epilogue, children 3D animation, fade to gold')">🎨 프롬프트</button></td>
       </tr>
     </tbody>
   </table>
-
 </section>
 
 <!-- ======= 4. 핵심 대사 ======= -->
 <section id="dialogues">
   <div class="sec-title"><span class="n">4</span> 핵심 대사집</div>
-
   <div class="card">
     <h3>달봉이 (해달아재) — 주요 대사</h3>
     <table class="dtable">
       <thead><tr><th>씬</th><th>대사</th><th>역할</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="speaker">S-31</td>
-          <td class="dial">"예쁜 건 금방 눈에 띄지만, 소중한 건 천천히 알게 되기도 한단다."</td>
-          <td class="role-d">핵심 교훈 — 에피소드 테마의 직접 발화</td>
-        </tr>
-        <tr>
-          <td class="speaker">S-32</td>
-          <td class="dial">"네가 가져온 건 조개만이 아니야. 고른 마음도 함께 왔구나."</td>
-          <td class="role-d">감정적 완결 — 오구리의 선택을 인정해주는 말</td>
-        </tr>
-        <tr>
-          <td class="speaker">S-35</td>
-          <td class="dial">"그래, 도찌도 마음으로 골랐구나."</td>
-          <td class="role-d">복선 회수 — 꼼꼼한 도찌에 대한 인정</td>
-        </tr>
-        <tr>
-          <td class="speaker">S-40 (보충)</td>
-          <td class="dial">"이건 네가 가져야겠다." (진주를 오구리에게 돌려줌)</td>
-          <td class="role-d">오구리 성장 상징 오브젝트 확립</td>
-        </tr>
+        <tr><td class="speaker">S-31</td><td class="dial">"예쁜 건 금방 눈에 띄지만, 소중한 건 천천히 알게 되기도 한단다."</td><td class="role-d">핵심 교훈 — 에피소드 테마 직접 발화</td></tr>
+        <tr><td class="speaker">S-32</td><td class="dial">"네가 가져온 건 조개만이 아니야. 고른 마음도 함께 왔구나."</td><td class="role-d">감정적 완결 — 오구리의 선택을 인정해주는 말</td></tr>
+        <tr><td class="speaker">S-35</td><td class="dial">"그래, 도찌도 마음으로 골랐구나."</td><td class="role-d">복선 회수 — 꼼꼼한 도찌에 대한 인정</td></tr>
+        <tr><td class="speaker">S-40</td><td class="dial">"이건 네가 가져야겠다." (진주를 오구리에게)</td><td class="role-d">오구리 성장 상징 오브젝트 확립</td></tr>
       </tbody>
     </table>
   </div>
-
   <div class="card" style="margin-top:1rem;">
     <h3>오구리 (주인공) — 감정 흐름 대사</h3>
     <table class="dtable">
       <thead><tr><th>씬</th><th>대사</th><th>감정 상태</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="speaker">S-13</td>
-          <td class="dial">(혼잣말) "… 이거 왠지 마음에 걸리네."</td>
-          <td class="role-d">직관적 끌림 — 설명하기 어려운 감정</td>
-        </tr>
-        <tr>
-          <td class="speaker">S-25</td>
-          <td class="dial">"달봉이아재… 저는… 더 예쁜 걸 드리고 싶었는데… 이게 왠지 달봉이아재한테 드리고 싶었어요."</td>
-          <td class="role-d">용기 있는 솔직함 — 자신 없지만 정직하게</td>
-        </tr>
-        <tr>
-          <td class="speaker">S-33</td>
-          <td class="dial">(작게) "…감사해요, 달봉이아재."</td>
-          <td class="role-d">깨달음과 따뜻함</td>
-        </tr>
-        <tr>
-          <td class="speaker">S-34</td>
-          <td class="dial">"아니야, 괜찮아." (우야에게)</td>
-          <td class="role-d">성장한 오구리 — 관대함</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card" style="margin-top:1rem;">
-    <h3>조연 주요 대사 — 감정·유머 포인트</h3>
-    <table class="dtable">
-      <thead><tr><th>화자</th><th>대사</th><th>기능</th></tr></thead>
-      <tbody>
-        <tr>
-          <td class="speaker">해피쿼카</td>
-          <td class="dial">"오구리야! 오늘이 달봉이아재 생일이래!!" / "파티 시작이야아아!"</td>
-          <td class="role-d">에너지 주입, 장면 전환 트리거</td>
-        </tr>
-        <tr>
-          <td class="speaker">우야</td>
-          <td class="dial">"오구리야, 다른 거 더 찾아볼까? 달봉이아재한테 더 예쁜 걸 드리고 싶지 않아?"</td>
-          <td class="role-d">갈등 촉발 — 악의 없는 말이 상처가 됨</td>
-        </tr>
-        <tr>
-          <td class="speaker">삐까</td>
-          <td class="dial">"나도 이게 좋아 보여." / "나 알아봤잖아!!"</td>
-          <td class="role-d">오구리의 지지자 / 엔딩 뿌듯함</td>
-        </tr>
-        <tr>
-          <td class="speaker">치토스</td>
-          <td class="dial">"엥?!" (진주 발견 시)</td>
-          <td class="role-d">클라이맥스 리액션 포인트</td>
-        </tr>
-        <tr>
-          <td class="speaker">고봉이</td>
-          <td class="dial">(쑥스럽게) "…잘 골랐네."</td>
-          <td class="role-d">캐릭터 완성 — 자존심 강한 아이의 솔직한 인정</td>
-        </tr>
-        <tr>
-          <td class="speaker">해피쿼카</td>
-          <td class="dial">"말했잖아 달봉이아재는 뭔가 다르다고!"</td>
-          <td class="role-d">코믹 + 클라이맥스 에너지</td>
-        </tr>
-        <tr>
-          <td class="speaker">나레이션/노래</td>
-          <td class="dial">"마음으로 고른 것엔, 눈에 안 보이는 것도 담겨있어요."</td>
-          <td class="role-d">엔딩 메시지 정리</td>
-        </tr>
+        <tr><td class="speaker">S-13</td><td class="dial">"… 이거 왠지 마음에 걸리네."</td><td class="role-d">직관적 끌림 — 설명하기 어려운 감정</td></tr>
+        <tr><td class="speaker">S-25</td><td class="dial">"달봉이아재… 더 예쁜 걸 드리고 싶었는데… 이게 왠지 달봉이아재한테 드리고 싶었어요."</td><td class="role-d">용기 있는 솔직함</td></tr>
+        <tr><td class="speaker">S-33</td><td class="dial">"…감사해요, 달봉이아재."</td><td class="role-d">깨달음과 따뜻함</td></tr>
+        <tr><td class="speaker">S-34</td><td class="dial">"아니야, 괜찮아." (우야에게)</td><td class="role-d">성장한 오구리 — 관대함</td></tr>
       </tbody>
     </table>
   </div>
@@ -1238,16 +872,15 @@
 <!-- ======= 5. 연출 노트 ======= -->
 <section id="direction">
   <div class="sec-title"><span class="n">5</span> 연출 노트</div>
-
   <div class="ov-grid">
     <div class="ov-box">
       <h4>클라이맥스 씬 (S-27~S-30) 연출 지침</h4>
       <ul>
-        <li>S-27 시작 전 BGM 볼륨 페이드 아웃 → 완전 정적 상태 유지</li>
-        <li>조개 열리는 순간(S-28): 슬로모션 + 진주빛 이펙트 (따뜻한 황금빛)</li>
+        <li>S-27 시작 전 BGM 볼륨 페이드 아웃 → 완전 정적</li>
+        <li>조개 열리는 순간(S-28): 슬로모션 + 따뜻한 황금빛 이펙트</li>
         <li>진주 등장과 동시에 맑은 피아노/챔버 멜로디 인서트</li>
         <li>빛이 주변 캐릭터 얼굴에 반사되는 컷으로 감동 극대화</li>
-        <li>S-29 리액션 몽타주는 빠른 편집으로 에너지 폭발</li>
+        <li>S-29 리액션 몽타주: 빠른 편집으로 에너지 폭발</li>
         <li>S-30 오구리 눈물은 슬프지 않게 — 따뜻한 미소와 함께</li>
       </ul>
     </div>
@@ -1255,86 +888,105 @@
       <h4>달봉이(해달아재) 연기 방향</h4>
       <ul>
         <li>서두르지 않음 — 항상 천천히, 작게 말함</li>
-        <li>정답을 먼저 말하지 않는다 — 행동(조개 두드리기)으로 먼저 보임</li>
-        <li>아이들을 내려다보지 않음 — 항상 같은 눈높이로 앉거나 몸을 낮춤</li>
+        <li>정답을 먼저 말하지 않는다 — 행동(조개 두드리기)으로 먼저</li>
+        <li>아이들을 내려다보지 않음 — 항상 눈높이를 맞춤</li>
         <li>표정이 크지 않음 — 작은 미소가 더 강함</li>
-        <li>핵심 대사는 느리게, 또렷하게, 아이들이 따라 말할 수 있는 속도로</li>
+        <li>핵심 대사는 느리게, 또렷하게</li>
       </ul>
     </div>
     <div class="ov-box">
       <h4>오구리 감정 연기 가이드</h4>
       <ul>
         <li>소심함은 몸짓으로 — 어깨가 늘 약간 움츠림</li>
-        <li>결심할 때: 눈을 감았다 뜨는 동작 반복 활용</li>
-        <li>S-25 선물 전달 시: 목소리 약간 떨림, 손이 살짝 떨림</li>
-        <li>진주 발견 후: 처음으로 몸을 활짝 펴는 모습 연출 권장</li>
-        <li>엔딩에서는 가장 밝은 표정 — 성장을 시각화</li>
+        <li>결심할 때: 눈을 감았다 뜨는 동작 활용</li>
+        <li>S-25: 목소리와 손 살짝 떨림</li>
+        <li>진주 발견 후: 처음으로 몸을 활짝 펴는 모습 연출</li>
+        <li>엔딩에서 가장 밝은 표정 — 성장을 시각화</li>
       </ul>
     </div>
     <div class="ov-box">
       <h4>색채 · 음악 방향</h4>
       <ul>
-        <li>배경: 파스텔 초록·베이지·하늘 — 따뜻하고 안전한 느낌</li>
+        <li>배경: 파스텔 초록·베이지·하늘</li>
         <li>해변: 크림·살구·연파랑 계열</li>
         <li>클라이맥스 진주빛: 따뜻한 황금 → 부드러운 흰빛</li>
-        <li>BGM: 어쿠스틱 기타/우쿨렐레 베이스 → 클라이맥스에서 피아노+챔버 전환</li>
-        <li>엔딩 노래: 느리고 따뜻한 멜로디, 아이들이 따라 부를 수 있는 가사</li>
+        <li>BGM: 어쿠스틱 기타/우쿨렐레 베이스</li>
+        <li>클라이맥스: 피아노+챔버 전환</li>
       </ul>
     </div>
   </div>
 
-  <div class="quote" style="margin-top:1.5rem;">
-    <p>
-      이 에피소드의 핵심은 달봉이가 오구리에게 정답을 "말해주는" 것이 아니라,
-      조개를 두드리는 <strong>행동</strong>으로 먼저 보여주고,
-      그 결과(진주)가 스스로 드러나게 하는 것이다.<br><br>
-      아이들은 달봉이의 말이 아니라 그 <strong>장면</strong>을 기억한다.
-    </p>
-    <div class="sp">— 연출 핵심 원칙</div>
-  </div>
-
-  <!-- 보완 제안 -->
-  <div class="card" style="margin-top:1.5rem;">
-    <h3>다음 단계 작업 제안</h3>
-    <table class="dtable">
-      <thead><tr><th>항목</th><th>내용</th><th>우선도</th></tr></thead>
-      <tbody>
-        <tr>
-          <td style="padding:8px 12px;font-weight:700;">배경 콘셉트 아트</td>
-          <td style="padding:8px 12px;">몽글숲 마을, 해변, 달봉이 집 마당 3곳 배경 확정</td>
-          <td style="padding:8px 12px;"><span class="tag tag-red">높음</span></td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;font-weight:700;">캐릭터 모션 가이드</td>
-          <td style="padding:8px 12px;">오구리·달봉이 중심으로 기본 감정 동작 5종 정의</td>
-          <td style="padding:8px 12px;"><span class="tag tag-red">높음</span></td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;font-weight:700;">오프닝·엔딩 노래</td>
-          <td style="padding:8px 12px;">시리즈 시그니처 곡 + 에피소드 엔딩 곡 가사 초안</td>
-          <td style="padding:8px 12px;"><span class="tag tag-amber">중간</span></td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;font-weight:700;">다른 에피소드 씬 분해</td>
-          <td class="sdialogue" style="padding:8px 12px;font-style:normal;">4화(무거운 가방), 6화(느린 다리), 7화(종소리) 순서로 진행 권장</td>
-          <td style="padding:8px 12px;"><span class="tag tag-sky">보통</span></td>
-        </tr>
-        <tr>
-          <td style="padding:8px 12px;font-weight:700;">주인공 오구리 진주 아이템화</td>
-          <td style="padding:8px 12px;">이후 에피소드에서 오구리가 진주를 지니고 다니는 연속성 설정</td>
-          <td style="padding:8px 12px;"><span class="tag tag-amber">중간</span></td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- 실시간 공유 안내 -->
+  <div class="rt-banner">
+    <div class="rt-icon">🔴</div>
+    <div class="rt-body">
+      <h4>실시간 공유 기능에 대해</h4>
+      <p>
+        이 페이지는 <strong>GitHub Pages 정적 사이트</strong>로, 서버 없이 배포됩니다.<br>
+        진짜 실시간 이미지 공유(여러 명이 동시에 이미지를 올리고 보기)는 <strong>백엔드 서버 또는 Firebase Realtime Database</strong>가 필요합니다.
+      </p>
+      <p>
+        <strong>지금 당장 가능한 것:</strong> 이 링크를 공유하면 기획서·스토리보드·프롬프트를 누구나 열람 가능합니다.<br>
+        각자 프롬프트로 이미지를 생성한 후 <strong>Notion, 피그마, 구글 슬라이드</strong> 등 협업 툴에 붙여넣는 방식이 지금 가장 빠릅니다.
+      </p>
+      <div class="rt-note">
+        실시간 이미지 업로드·공유 기능이 필요하다면 <strong>Firebase 연동 버전</strong>으로 업그레이드할 수 있어요. 원하시면 말씀해 주세요.
+      </div>
+    </div>
   </div>
 </section>
 
-</div><!-- /wrap -->
+</div>
 
 <footer>
   해달아재와 몽글숲 친구들 — 에피소드 3 "해달아재의 생일파티!"<br>
   기획·스토리보드 문서 · 2026
 </footer>
 
+<script>
+const promptData = {};
+
+function showPrompt(scene, action, mj, sd) {
+  document.getElementById('ppSceneInfo').textContent = '씬 ' + scene;
+  document.getElementById('ppActionDesc').textContent = action;
+  document.getElementById('ppPromptBox').textContent = mj;
+  document.getElementById('ppSdBox').textContent = sd;
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('promptPanel').classList.add('open');
+  const btn = document.getElementById('ppCopyBtn');
+  btn.textContent = '📋 클립보드에 복사';
+  btn.classList.remove('copied');
+  btn.className = 'pp-copy-btn';
+}
+
+function closePrompt() {
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('promptPanel').classList.remove('open');
+}
+
+function copyPrompt() {
+  const text = document.getElementById('ppPromptBox').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('ppCopyBtn');
+    btn.textContent = '✅ 복사됐어요!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 클립보드에 복사';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+function copySd() {
+  const text = document.getElementById('ppSdBox').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    alert('SD 프롬프트가 복사됐습니다!');
+  });
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePrompt();
+});
+</script>
 </body>
 </html>
